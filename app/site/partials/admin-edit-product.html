@@ -18,7 +18,11 @@
 		<div>
 			<label>Category</label>
 			<!-- TODO #2: Set Options -->
+<<<<<<< HEAD
 			<select name="category" ng-options="option.value as option.label for option in ctrl.categories">
+=======
+			<select name="category" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.product.category">
+>>>>>>> usrrname/master
 			</select>
 		</div>
 		<div>
@@ -30,7 +34,7 @@
 			<input type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
 		</div>
 		<div>
-			<button type="submit" >{{ctrl.product_update_btn}}</button>
+			<button type="submit" ng-click="ctrl.updateProduct()">{{ctrl.product_update_btn}}</button>
 			<button type="submit" ng-click="ctrl.deleteProduct()">{{ctrl.product_delete_btn}}</button>
 		</div>
 </article>
