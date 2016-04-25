@@ -105,14 +105,9 @@
 				if(res.status === 200){
 					//product was deleted successfully
 					self.removeProduct(productId);
-<<<<<<< HEAD
+
 					self.getProducts();
 					$state.go('admin.dash');
-
-=======
-					$state.go('admin.dash');
->>>>>>> usrrname/master
-					
 				}
 			})
 		}
