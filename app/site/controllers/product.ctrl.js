@@ -4,7 +4,7 @@
 	.module('shopApp')
 	.controller('ProductCtrl',ProductCtrl);
 
-	function ProductCtrl($stateParams,api,productSrv){
+	function ProductCtrl($stateParams,api,productSrv,$location){
 		var productVm = this;
 
 		productVm.categories = [
@@ -68,6 +68,7 @@
 			//TODO #2
 			//remove product, pass to product service
 			//update text in button
+			productSrv.deleteProduct($stateParams.productId);
 		}
 	}
 

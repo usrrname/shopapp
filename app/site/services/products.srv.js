@@ -90,6 +90,7 @@
 			for(var i=0;i < self.products.length;i++){
 				if(self.products[i].id == productId){
 					delete self.products[i];
+					$state.go('admin.dash');
 				}
 			}
 		}
