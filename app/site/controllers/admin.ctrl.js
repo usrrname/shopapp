@@ -5,7 +5,7 @@
 		.module('shopApp')
 		.controller('AdminCtrl',AdminCtrl);
 
-	function AdminCtrl($scope,$state,productSrv){
+	function AdminCtrl($scope,$state,productSrv, products){
 		var adminVm = this;
 		adminVm.productSrv = productSrv;
 
@@ -14,8 +14,9 @@
 			$state.go('auth');
 		}
 					
-		adminVm.products;
-		if(adminVm.products.length > 0 ){
+		adminVm.products = products;
+		console.log(adminVm.products);
+		if(productSrv.products.length > 0 ){
 			adminVm.is_products = true;
 		}
 
