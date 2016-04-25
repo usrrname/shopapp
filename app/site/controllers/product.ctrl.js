@@ -14,7 +14,10 @@
 			{label:'Outerwear',value:'outerwear'},
 			{label:'Accessories',value:'accessories'},
 		];
-		productVm.product = {};
+
+		productVm.product = {
+			};
+
 		productVm.product_update_btn = 'Update Product';
 		productVm.product_delete_btn = 'Remove Product';
 		
@@ -43,7 +46,16 @@
 			//TODO #2
 			//create product object, pass to product service
 			//Update text in button
-			
+			productSrv.addProduct({
+				name: productVm.name,
+				image: productVm.image,
+				description: productVm.description,
+				category: productVm.category,
+				price: productVm.price,
+				quantity: productVm.quantity
+			});
+
+			productVm.product_update_btn = 'sadsada';
 		}
 
 		function updateProduct(){
