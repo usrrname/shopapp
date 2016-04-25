@@ -59,6 +59,8 @@
 		}
 
 		function updateProduct(){
+			productSrv.updateProduct(productVm.product, $stateParams.productId);
+			console.log('you clicked it');
 			//TODO #2
 			//create product object, pass to product service
 			//Update text in button
