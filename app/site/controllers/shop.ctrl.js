@@ -3,13 +3,18 @@
 		.module('shopApp')
 		.controller('ShopCtrl',ShopCtrl)
 
-	function ShopCtrl($scope,productSrv, products){
+	function ShopCtrl($location,$scope,productSrv, products){
 		var shopVm = this;
 
 		//TODO #3 Capture resolved products for view
 		shopVm.products = products;
 		shopVm.productSrv = productSrv;
 		shopVm.searchFilter = searchFilter;
+		shopVm.adminLogin = adminLogin; 
+		
+		function adminLogin(){
+			$location.path('/auth');
+		}
 
 		function searchFilter(){
 			shopVm.filter = "";
