@@ -10,47 +10,6 @@
 		self.products = [];
 
 		// SEED DATA - Comment Out after first load
-		addProduct({
-			name: "Vitamin S",
-			image: "http://bit.ly/1rdq6Bu",
-			description: "See tee for description",
-			category: "Shirts",
-			price: 24,
-			quantity: 5});
-
-		addProduct({
-			name: "Kids Can’t Die",
-			image: "http://bit.ly/1rv9VQu",
-			description: "See tee for description",
-			category: "Shirts",
-			price: 24,
-			quantity: 5});
-			
-		addProduct({
-			name: "Love Hate",
-			image: "http://bit.ly/23WvY3M",
-			description: "See tee for description",
-			category: "Shirts",
-			price: 24,
-			quantity: 5});
-
-		addProduct({
-			name: "Grabby Mickey",
-			image: "http://bit.ly/1Soaxkz",
-			description: "See tee for description",
-			category: "Pants",
-			price: 24,
-			quantity: 5});
-
-		addProduct({
-			name: "Cool Story Bro",
-			image: "http://bit.ly/1QxurUI",
-			description: "See tee for description",
-			category: "Pants",
-			price: 24,
-			quantity: 5});
-
-
 
 		//public functions
 		self.getProduct = getProduct;
@@ -61,16 +20,62 @@
 		self.removeProduct = removeProduct;
 		self.deleteProduct = deleteProduct;
 
+		self.getProducts()
+			.then(function(){
+
+				if (self.products.length === 0){
+					addProduct({
+						name: "Vitamin S",
+						image: "http://bit.ly/1rdq6Bu",
+						description: "See tee for description",
+						category: "Shirts",
+						price: 24,
+						quantity: 5});
+
+					addProduct({
+						name: "Kids Can’t Die",
+						image: "http://bit.ly/1rv9VQu",
+						description: "See tee for description",
+						category: "Shirts",
+						price: 24,
+						quantity: 5});
+						
+					addProduct({
+						name: "Love Hate",
+						image: "http://bit.ly/23WvY3M",
+						description: "See tee for description",
+						category: "Shirts",
+						price: 24,
+						quantity: 5});
+
+					addProduct({
+						name: "Grabby Mickey",
+						image: "http://bit.ly/1Soaxkz",
+						description: "See tee for description",
+						category: "Pants",
+						price: 24,
+						quantity: 5});
+
+					addProduct({
+						name: "Cool Story Bro",
+						image: "http://bit.ly/1QxurUI",
+						description: "See tee for description",
+						category: "Pants",
+						price: 24,
+						quantity: 5});
+				}
+			});
+
 		function getProducts(){
 			return api.request('/products',{},'GET')
 			.then(function(res){
 				//success callback
-				console.log(res);
+				console.log("got products");
 				self.products = res.data.products;
 				return res.data.products;
 			},function(res){
 				//error callback
-				console.log(res);
+				//console.log(res);
 				return;
 			})
 		}
@@ -78,7 +83,7 @@
 		function addProduct(product){
 			api.request('/products',product,'POST')
 			.then(function(res){
-				console.log(res);
+				//console.log(res);
 				if(res.status === 200){
 					//product was added successfully
 					self.products.push(res.data.product);
@@ -90,7 +95,7 @@
 		function updateProduct(product,productId){
 			api.request('/products/'+productId,product,'PUT')
 			.then(function(res){
-				console.log(res);
+				//console.log(res);
 				if(res.status === 200){
 					//product was updated successfully
 					self.updateProductList(product,productId);
@@ -101,7 +106,7 @@
 		function deleteProduct(productId){
 			api.request('/products/'+productId,{},'DEL')
 			.then(function(res){
-				console.log(res);
+				//console.log(res);
 				if(res.status === 200){
 					//product was deleted successfully
 					self.removeProduct(productId);
