@@ -8,8 +8,13 @@
 		var self = this;
 		//public variables
 		self.products = [];
-		self.cart = [];
-
+		
+		if(localStorage.getItem("cart") == undefined){
+			self.cart = []
+		} else {
+			cartRefresh();
+		}
+		
 		// SEED DATA - Comment Out after first load
 
 		//public functions
@@ -21,7 +26,10 @@
 		self.removeProduct = removeProduct;
 		self.deleteProduct = deleteProduct;
 		self.cartAdd = cartAdd;
-		// self.cartRemove = cartRemove;
+		self.storageUpdate = storageUpdate;
+		self.cartRemove = cartRemove;
+		self.cartRefresh = cartRefresh;
+		self.searchFilter = searchFilter;
 
 		self.getProducts()
 			.then(function(){
@@ -147,6 +155,16 @@
 			}
 		}
 
+		function storageUpdate(){
+			for (var i = 0; i < self.cart.length; i++){
+				if (self.cart[i].count == 0){
+					self.cart.splice(i,1);
+				}
+			}
+			var cart = angular.toJson(self.cart);
+			localStorage.setItem("cart", cart);	
+		}
+
 		// CART FUNCTIONS
 		function cartAdd(id) {
 			var duplicate = false;
@@ -163,14 +181,36 @@
 					if(self.products[i].id == id) {
 						self.cart.push(self.products[i]);
 						self.cart[self.cart.length - 1].count = 1;
+						
 					}
 				}
 			}
+			self.storageUpdate();
 		}
 
-		// function cartRemove(id) {
+		function cartRemove(id) {
+			console.log("remove");
+			for (var i = 0; i < self.cart.length; i++){
+				if (self.cart[i].id === id){
+					console.log("cart before: "+self.cart);
+					self.cart.splice(i,1);
+					console.log("cart after: "+self.cart);
+				}
+			}
+			self.storageUpdate();
+		}
 
+		function cartRefresh(){
+			self.cart = JSON.parse(localStorage.getItem("cart"));
+		}
 
-		// }
+		function searchFilter(){
+			console.log("searchfiltering");
+			self.filter = "";
+
+			self.customFilter = self.search;
+			console.log(self.search);
+			
+		}
 	}
 })();

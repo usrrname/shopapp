@@ -4,7 +4,7 @@
 			<li><img src="assets/img/logo.png"></li>
 		</ul>
 		<ul class="right-nav">
-			<a data-toggle="modal" data-target="#myModal"><li><i class="fa fa-shopping-cart"></i><span class="cart">Cart</span></li></a>
+			<a data-toggle="modal" data-target="#myModal" ng-click="ctrl.productSrv.cartRefresh()"><li><i class="fa fa-shopping-cart"></i><span class="cart">Cart</span></li></a>
 		</ul>
 	</div>
 </nav>
@@ -31,13 +31,14 @@
         		<tr ng-repeat="item in ctrl.productSrv.cart">
         			<td>{{item.name}}</td>
         			<td>{{item.price}}</td>
-        			<td>{{item.count}}</td>
+        			<td><input type="number" min="0" ng-model="item.count"></input></td>
+        			<td><button type="button" class="close" style="color:red" aria-label="Close"><span aria-hidden="true" ng-click="ctrl.productSrv.cartRemove(item.id)">&times;</span></button></td>
         		</tr>
         	</tbody>
         </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" ng-click="ctrl.productSrv.storageUpdate()">Update Cart</button>
         <button type="button" class="btn btn-primary">Checkout</button>
       </div>
     </div>
@@ -60,8 +61,8 @@
 						<form>
 							<!-- TO DO #3: ENABLE PRODUCT SEARCH -->
 							<div class="form-container">
-								<input type="text" class="form-control"  placeholder="Search for a brand or item" >
-								<a class="search-btn"><img src="assets/img/icon-search@2x.png"></a>
+								<input type="text" class="form-control"  placeholder="Search for a brand or item"  ng-model="ctrl.search">
+								<button class="search-btn" ng-click="ctrl.searchFilter()"><img src="assets/img/icon-search@2x.png"></button>
 							</div>
 						</form>
 					</div>
@@ -76,12 +77,12 @@
 	<div class="content-wrapper">
 		<!-- TO DO #3: SET CATEGORY SEARCH AND SET FOCUS CLASS-->
 		<ul class="product-nav">
-			<li ng-click="ctrl.filter = ''"><a>All</a></li>
-			<li ng-click="ctrl.filter = 'shoes'"><a>Shoes</a></li>
-			<li ng-click="ctrl.filter = 'shirts'"><a>Shirts</a></li>
-			<li ng-click="ctrl.filter = 'pants'"><a>Pants</a></li>
-			<li ng-click="ctrl.filter = 'outerwear'"><a>Outerwear</a></li>
-			<li ng-click="ctrl.filter = 'accessories'"><a>Accessories</a></li>
+			<li ng-click="ctrl.filter = ''; ctrl.customFilter = ''"><a>All</a></li>
+			<li ng-click="ctrl.filter = 'shoes'; ctrl.customFilter = ''"><a>Shoes</a></li>
+			<li ng-click="ctrl.filter = 'shirts'; ctrl.customFilter = ''"><a>Shirts</a></li>
+			<li ng-click="ctrl.filter = 'pants'; ctrl.customFilter = ''"><a>Pants</a></li>
+			<li ng-click="ctrl.filter = 'outerwear'; ctrlcustomFilter = ''"><a>Outerwear</a></li>
+			<li ng-click="ctrl.filter = 'accessories'; ctrl.customFilter = ''"><a>Accessories</a></li>
 		</ul>
 	</div>
 </section>
@@ -91,7 +92,7 @@
 		<div class="row">
 			<!-- TODO #3: SHOW PRODUCTS -->
 
-			<div class="col-xs-12 col-sm-3" ng-repeat="product in ctrl.products | filter : {'category': ctrl.filter}">
+			<div class="col-xs-12 col-sm-3" ng-repeat="product in ctrl.products | filter : {'category': ctrl.filter} | filter : ctrl.customFilter">
 				<div id="product-card" class="product-card">
 					<div class="product-buy">
 						<div class="table-view">
