@@ -9,6 +9,49 @@
 		//public variables
 		self.products = [];
 
+		// SEED DATA - Comment Out after first load
+		addProduct({
+			name: "Vitamin S",
+			image: "http://bit.ly/1rdq6Bu",
+			description: "See tee for description",
+			category: "Shirts",
+			price: 24,
+			quantity: 5});
+
+		addProduct({
+			name: "Kids Can’t Die",
+			image: "http://bit.ly/1rv9VQu",
+			description: "See tee for description",
+			category: "Shirts",
+			price: 24,
+			quantity: 5});
+			
+		addProduct({
+			name: "Love Hate",
+			image: "http://bit.ly/23WvY3M",
+			description: "See tee for description",
+			category: "Shirts",
+			price: 24,
+			quantity: 5});
+
+		addProduct({
+			name: "Grabby Mickey",
+			image: "http://bit.ly/1Soaxkz",
+			description: "See tee for description",
+			category: "Pants",
+			price: 24,
+			quantity: 5});
+
+		addProduct({
+			name: "Cool Story Bro",
+			image: "http://bit.ly/1QxurUI",
+			description: "See tee for description",
+			category: "Pants",
+			price: 24,
+			quantity: 5});
+
+
+
 		//public functions
 		self.getProduct = getProduct;
 		self.getProducts = getProducts;
@@ -51,7 +94,6 @@
 				if(res.status === 200){
 					//product was updated successfully
 					self.updateProductList(product,productId);
-					
 				}
 			})
 		}
@@ -63,8 +105,9 @@
 				if(res.status === 200){
 					//product was deleted successfully
 					self.removeProduct(productId);
-					state.go('admin.dash');
-					
+
+					self.getProducts();
+					$state.go('admin.dash');
 				}
 			})
 		}
@@ -84,12 +127,14 @@
 					self.products[i].quantity = product.quantity;
 				}
 			}
+			$state.go('admin.dash');
 		}
 
 		function removeProduct(productId){
 			for(var i=0;i < self.products.length;i++){
 				if(self.products[i].id == productId){
 					delete self.products[i];
+					$state.go('admin.dash');
 				}
 			}
 		}

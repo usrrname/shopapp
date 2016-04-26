@@ -4,7 +4,7 @@
 	.module('shopApp')
 	.controller('ProductCtrl',ProductCtrl);
 
-	function ProductCtrl($stateParams,api,productSrv){
+	function ProductCtrl($stateParams,api,productSrv,$location){
 		var productVm = this;
 
 		productVm.categories = [
@@ -59,6 +59,8 @@
 		}
 
 		function updateProduct(){
+			productSrv.updateProduct(productVm.product, $stateParams.productId);
+			console.log('you clicked it');
 			//TODO #2
 			//create product object, pass to product service
 			//Update text in button
@@ -68,6 +70,7 @@
 			//TODO #2
 			//remove product, pass to product service
 			//update text in button
+			productSrv.deleteProduct($stateParams.productId);
 		}
 	}
 
