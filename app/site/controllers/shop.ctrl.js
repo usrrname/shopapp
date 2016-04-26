@@ -8,6 +8,7 @@
 
 		//TODO #3 Capture resolved products for view
 		shopVm.products = products;
+		shopVm.productSrv = productSrv;
 
 		//watch for any changes to model data
 		$scope.$watch(function(){
@@ -16,6 +17,8 @@
 		    shopVm.products = productSrv.products;
 		});
 	}
+
+
 
 })();
 

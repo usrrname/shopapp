@@ -8,6 +8,7 @@
 		var self = this;
 		//public variables
 		self.products = [];
+		self.cart = [];
 
 		// SEED DATA - Comment Out after first load
 
@@ -19,6 +20,8 @@
 		self.updateProductList = updateProductList;
 		self.removeProduct = removeProduct;
 		self.deleteProduct = deleteProduct;
+		self.cartAdd = cartAdd;
+		// self.cartRemove = cartRemove;
 
 		self.getProducts()
 			.then(function(){
@@ -143,5 +146,31 @@
 				}
 			}
 		}
+
+		// CART FUNCTIONS
+		function cartAdd(id) {
+			var duplicate = false;
+			// Check if item's already in cart, add quanitity if so
+			for(var i = 0; i < self.cart.length; i++) {
+				if(self.cart[i].id == id) {
+					self.cart[i].count += 1;
+					duplicate = true;
+				}
+			}
+
+			if (!duplicate) {
+				for(var i = 0; i < self.products.length; i++) {
+					if(self.products[i].id == id) {
+						self.cart.push(self.products[i]);
+						self.cart[self.cart.length - 1].count = 1;
+					}
+				}
+			}
+		}
+
+		// function cartRemove(id) {
+
+
+		// }
 	}
 })();
