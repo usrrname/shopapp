@@ -33,7 +33,7 @@
         	<tbody>
         		<tr ng-repeat="item in ctrl.productSrv.cart">
         			<td>{{item.name}}</td>
-        			<td>{{item.price}}</td>
+        			<td>{{item.price | currency}}</td>
         			<td><input type="number" min="0" ng-model="item.count"></input></td>
         			<td><button type="button" class="close" style="color:red" aria-label="Close"><span aria-hidden="true" ng-click="ctrl.productSrv.cartRemove(item.id)">&times;</span></button></td>
         		</tr>
