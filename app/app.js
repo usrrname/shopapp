@@ -22,11 +22,6 @@
 					}
 				}
 			})
-			.state('login',{
-				url:'/login',
-				templateUrl:'site/partials/auth-main.html',
-				controller: 'AuthCtrl as ctrl',
-			})
 			.state('admin',{
 				url:'/admin',
 				templateUrl:'site/partials/admin.html',
