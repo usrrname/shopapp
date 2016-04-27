@@ -22,6 +22,17 @@
 					}
 				}
 			})
+			.state('shop.prod',{
+				url:'/prod/:productId',
+				templateUrl:'site/partials/product-detail.html',
+				controller:'ProdDetailCtrl as ctrl',
+				//TODO #3 resolve products before main page load
+				resolve:{
+					products:function(productSrv){
+						return productSrv.getProducts();
+					}
+				}
+			})
 			.state('admin',{
 				url:'/admin',
 				templateUrl:'site/partials/admin.html',

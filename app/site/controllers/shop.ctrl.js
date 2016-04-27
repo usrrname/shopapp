@@ -11,8 +11,9 @@
 		shopVm.productSrv = productSrv;
 		shopVm.searchFilter = searchFilter;
 		shopVm.adminLogin = adminLogin;
-		shopVm.openModal = openModal; 
-		
+		shopVm.openModal = openModal;
+		shopVm.openDetailModal = openDetailModal; 
+	
 		function adminLogin(){
 			$location.path('/auth');
 		}
@@ -30,6 +31,23 @@
 			templateUrl: 'site/partials/modal.html',
 			controller: 'ModalCtrl',
 			controllerAs: 'ctrl'
+			})
+		}
+
+		function openDetailModal(id){
+			shopVm.productId = id;
+			$uibModal.open({
+			templateUrl: 'site/partials/product-detail.html',
+			controller: 'ProdDetailCtrl',
+			controllerAs: 'ctrl',
+			resolve: {
+				product: function(){
+					console.log("this works" + id);
+					return productSrv.getProduct(shopVm.productId).then(function(res) {
+						return res.data.product;
+					});
+				}
+			}
 			})
 		}
 
