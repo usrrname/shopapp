@@ -97,15 +97,15 @@
 
 			<div class="col-xs-12 col-sm-3" ng-repeat="product in ctrl.products | filter : {'category': ctrl.filter} | filter : ctrl.customFilter">
 				<div id="product-card" class="product-card">
-					<div class="product-buy">
+					<a class="product-buy">
 						<div class="table-view">
 							<div class="table-cell">
 								<i class="fa fa-shopping-cart" ng-click="ctrl.productSrv.cartAdd(product.id)"></i>
 							</div>
 						</div>
-					</div>
+					</a>
 					<!-- SET PRODUCT IMAGE -->
-					<div class="product-img" style="background:url('{{product.image}}');background-size:cover;background-position:center center">
+					<div class="product-img" style="background:url('{{product.image}}')">
 					</div>
 
 					<div class="product-info">

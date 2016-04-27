@@ -198,16 +198,33 @@ Product view
 	width:30px;
 	top:10px;
 	right:10px;
+	cursor:pointer;
+	border-style:none;
 }
 
-#product-card .product-buy:hover .fa{
-	color:whitesmoke;
-	cursor: pointer;
-	cursor:hand;
-}
 #product-card .product-img{
 	width:100%;
 	height:200px;
+	background-size:cover !important;
+	background-position:center !important;
+
+}
+
+#product-card:hover > .product-img{
+	opacity:0.75;
+}
+
+.product-buy{
+	opacity:1;
+	z-index: 2;
+}
+
+.product-buy:hover{
+	-webkit-transform: scale(1.25);
+}
+
+.product-buy:active{
+	-webkit-transform: scale(1);
 }
 
 #product-card .product-info{

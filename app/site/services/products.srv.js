@@ -211,13 +211,5 @@
 			return self.cart;
 		}
 
-		function searchFilter(){
-			console.log("searchfiltering");
-			self.filter = "";
-
-			self.customFilter = self.search;
-			console.log(self.search);
-			
-		}
 	}
 })();
