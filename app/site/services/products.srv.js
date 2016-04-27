@@ -29,7 +29,6 @@
 		self.getCart = getCart;
 		self.cartRemove = cartRemove;
 		self.cartRefresh = cartRefresh;
-		self.searchFilter = searchFilter;
 		self.storageUpdate = storageUpdate;
 
 		self.getProducts()
