@@ -29,7 +29,6 @@
 		self.storageUpdate = storageUpdate;
 		self.cartRemove = cartRemove;
 		self.cartRefresh = cartRefresh;
-		self.searchFilter = searchFilter;
 
 		self.getProducts()
 			.then(function(){
@@ -204,13 +203,5 @@
 			self.cart = JSON.parse(localStorage.getItem("cart"));
 		}
 
-		function searchFilter(){
-			console.log("searchfiltering");
-			self.filter = "";
-
-			self.customFilter = self.search;
-			console.log(self.search);
-			
-		}
 	}
 })();
