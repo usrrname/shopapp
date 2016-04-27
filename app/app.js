@@ -56,6 +56,12 @@
 				url:'/auth',
 				templateUrl:'site/partials/auth-main.html',
 				controller:'AuthCtrl as ctrl',
+			})
+
+			.state('checkout', {
+				url: '/checkout',
+				templateUrl: 'site/partials/checkout.html',
+				controller: 'CheckoutCtrl as ctrl'
 			});
 
 			$httpProvider.interceptors.push(function(){
