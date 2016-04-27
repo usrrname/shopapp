@@ -10,9 +10,18 @@
 		self.products = [];
 		
 		if(localStorage.getItem("cart") == undefined){
-			self.cart = []
+			console.log("undefined cart");
+			self.cart = [];
 		} else {
+			console.log(localStorage.getItem("cart"));
 			cartRefresh();
+			console.log("defined cart");
+		}
+
+		if(localStorage.getItem("orders") == undefined){
+			self.orders = [];
+		} else {
+			self.orders = JSON.parse(localStorage.getItem("orders"));
 		}
 		
 		// SEED DATA - Comment Out after first load
@@ -201,7 +210,7 @@
 		}
 
 		function cartRefresh(){
-			console.log('refreshing...');
+			console.log('refreshing cart...');
 			self.cart = JSON.parse(localStorage.getItem("cart"));
 		}
 

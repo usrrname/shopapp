@@ -129,13 +129,16 @@ Top-content
 	vertical-align: middle;
 	top:0px;
 	right:0px;
-
+	border-style: none;
 }
+
 .top-content .search-btn img{
 	width:18px;
-	margin-top:11px;
 }
 
+.top-content .search-btn:hover img{
+	-webkit-transform: scale(1.25);
+}
 
 /*
 Sub Nav
@@ -247,3 +250,19 @@ Product view
 	margin:10px 0px;
 }
 
+/*Checkout Page Styling*/
+.checkoutForm input {
+	width: 90%;
+}
+
+.checkoutForm * {
+	font-size: 14px;
+}
+
+table * {
+	font-size: 16px;
+}
+
+.bottomSpacing {
+	margin-bottom: 50px;
+}
