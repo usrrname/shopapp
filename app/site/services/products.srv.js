@@ -26,10 +26,11 @@
 		self.removeProduct = removeProduct;
 		self.deleteProduct = deleteProduct;
 		self.cartAdd = cartAdd;
-		self.storageUpdate = storageUpdate;
+		self.getCart = getCart;
 		self.cartRemove = cartRemove;
 		self.cartRefresh = cartRefresh;
 		self.searchFilter = searchFilter;
+		self.storageUpdate = storageUpdate;
 
 		self.getProducts()
 			.then(function(){
@@ -155,16 +156,6 @@
 			}
 		}
 
-		function storageUpdate(){
-			for (var i = 0; i < self.cart.length; i++){
-				if (self.cart[i].count == 0){
-					self.cart.splice(i,1);
-				}
-			}
-			var cart = angular.toJson(self.cart);
-			localStorage.setItem("cart", cart);	
-		}
-
 		// CART FUNCTIONS
 		function cartAdd(id) {
 			var duplicate = false;
@@ -188,6 +179,16 @@
 			self.storageUpdate();
 		}
 
+		function storageUpdate(){
+			for (var i = 0; i < self.cart.length; i++){
+				if (self.cart[i].count == 0){
+					self.cart.splice(i,1);
+				}
+			}
+			var cart = angular.toJson(self.cart);
+			localStorage.setItem("cart", cart);	
+		}
+
 		function cartRemove(id) {
 			console.log("remove");
 			for (var i = 0; i < self.cart.length; i++){
@@ -201,7 +202,13 @@
 		}
 
 		function cartRefresh(){
+			console.log('refreshing...');
 			self.cart = JSON.parse(localStorage.getItem("cart"));
+		}
+
+		function getCart() {
+			self.cart = JSON.parse(localStorage.getItem("cart"));
+			return self.cart;
 		}
 
 		function searchFilter(){
