@@ -22,7 +22,6 @@
 					}
 				}
 			})
-
 			.state('admin',{
 				url:'/admin',
 				templateUrl:'site/partials/admin.html',
