@@ -1,0 +1,31 @@
+<div>
+	<h1>Product Detail</h1>
+	<div id="product-card" class="product-card">
+		<a class="product-buy">
+			<div class="table-view">
+				<div class="table-cell">
+					<i class="fa fa-shopping-cart" ng-click="ctrl.productSrv.cartAdd(product.id)"></i>
+				</div>
+			</div>
+		</a>
+		<!-- SET PRODUCT IMAGE -->
+		<div>
+			Product ID:{{ctrl.product.id}}
+		</div>
+		<div class="product-info">
+			<div class="product-name">
+				<!-- SET PRODUCT NAME -->
+				Product Name: {{ctrl.product.name}}
+			</div>
+			<div class="product-brand">
+				<!-- SET PRODUCT Description -->
+				Description: {{ctrl.product.description}}
+				<em></em>
+			</div>
+			<div class="product-cost">
+				Price : {{ctrl.product.price}}
+				<!-- SET PRODUCT PRICE WITH FILTER -->
+			</div>
+		</div>
+	</div>
+</div>
