@@ -81,7 +81,7 @@
 			return api.request('/products',{},'GET')
 			.then(function(res){
 				//success callback
-				console.log("got products");
+				console.log(res);
 				self.products = res.data.products;
 				return res.data.products;
 			},function(res){
