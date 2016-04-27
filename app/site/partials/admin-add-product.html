@@ -3,35 +3,57 @@
 </h3>
 
 <article class="product-frm">
+	
 	<form name="add-product" ng-submit="ctrl.addProduct()">
+		<hr>
+		<div class = "form-group attribute">
+			<label><big><big>Name</big></big></label>
+			<input class = "form-control" type="text" name="name" ng-model="ctrl.name" required>
+		<hr>
+		</div>
 
-		<div>
-			<label>Name</label>
-			<input type="text" name="name" ng-model="ctrl.name" required>
+		<div class = "attribute">
+			<label><big><big>Image</big></big></label>
+			<input class = "form-control" type="text" name="image" ng-model="ctrl.image" required>
+		<hr>
 		</div>
-		<div>
-			<label>Image</label>
-			<input type="text" name="image" ng-model="ctrl.image" required>
+
+		<div class = "attribute">
+			<label><big><big>Description</big></big></label>
+			<textarea class = "form-control" type="text" name="name" ng-model="ctrl.description" required></textarea>
+		<hr>
 		</div>
-		<div>
-			<label>Description</label>
-			<textarea type="text" name="name" ng-model="ctrl.description" required></textarea>
+
+		<div class = "attribute">
+			<label><big><big>Category</big></big></label>
+			<big><select  class = "form-control" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.category" name="category">
+			</big></select>
+			<hr>
 		</div>
-		<div>
-			<label>Category</label>
-			<select ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.category" name="category">
-			</select>
-		</div>
-		<div>
+
+		<div class = "attribute floating">
 			<label>Price</label>
-			<input type="number" name="price" ng-model="ctrl.price" required>
+			<input  class = "form-control" type="number" name="price" ng-model="ctrl.price" required>
 		</div>
-		<div>
+		
+		<p class = "emptyspace floating"> </p>
+		<p class = "emptyspace floating"> </p>
+		<div class = "attribute floating">
 			<label>Quantity</label>
-			<input type="number" name="quantity" ng-model="ctrl.quantity" required>
+			<input  class = "form-control" type="number" name="quantity" ng-model="ctrl.quantity" required>
 		</div>
+		
 		<div>
-			<button type="submit">Add Product</button>
+			<button class = "buttonstyle btn btn-success" type="submit">
+			<img class = "icon" src="assets/NewPics/add.png"> Add Product</button>
+		
 		</div>
+		<br>
+		<div class = "floating-title">
+				<img class = "icon-image" src="assets/NewPics/add.png"> 
+				add here
+				<img class = "icon-image" src="assets/NewPics/add.png">
+		</div>
+
 	</form>
 </article>
