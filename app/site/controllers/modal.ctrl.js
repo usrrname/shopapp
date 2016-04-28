@@ -16,7 +16,7 @@
 		modalVm.updateCart = updateCart;
 		modalVm.checkout = checkout;
 		modalVm.max = max;
-		
+
 		function removeSelected(id){
 			for (var i = 0; i < modalVm.cart.length; i++){
 				if (modalVm.cart[i].id === id){
@@ -55,7 +55,6 @@
 				}
 			}
 		}
-
 		
 	}
 

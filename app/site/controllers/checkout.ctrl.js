@@ -3,7 +3,7 @@
 		.module('shopApp')
 		.controller('CheckoutCtrl', CheckoutCtrl);
 
-	function CheckoutCtrl($location, productSrv){
+	function CheckoutCtrl($location, $state, productSrv){
 		var chkVm = this;
 		chkVm.cart = productSrv.getCart();
 
@@ -38,6 +38,22 @@
 				orderNum: chkVm.serialNumAssign(),
 				orderTotal: chkVm.theTotal()
 			}
+
+			console.log('Products Arr before:');
+			console.log(productSrv.products);
+			// Update products list (in productSrv)
+			for(var i = 0; i < cart.length; i++) {
+				var cartId = cart[i].id;
+				for(var q = 0; q < chkVm.productSrv.products.length; q++) {
+					if (chkVm.productSrv.products[q].id == cartId) {
+						chkVm.productSrv.products[q].quantity -= cart[i].count;
+						productSrv.updateProduct(productSrv.products[q], cartId);
+					}
+				}
+			}
+			console.log('Products Arr after:');
+			console.log(productSrv.products);
+
 
 			chkVm.productSrv.orders.push(tempOrders);
 			console.log(chkVm.productSrv.orders);
