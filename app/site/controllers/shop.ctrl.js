@@ -13,6 +13,7 @@
 		shopVm.adminLogin = adminLogin;
 		shopVm.openModal = openModal;
 		shopVm.openDetailModal = openDetailModal; 
+		shopVm.max = max;
 	
 		function adminLogin(){
 			$location.path('/auth');
@@ -50,6 +51,18 @@
 			}
 			})
 		}
+
+		function max(id){
+			if (shopVm.productSrv.cart.length != undefined)
+				for (var i = 0; i < shopVm.productSrv.cart.length; i++){
+					if (shopVm.productSrv.cart[i].id == id){
+						if (shopVm.productSrv.cart[i].count == shopVm.productSrv.cart[i].quantity){
+							return true;
+						}
+					}
+				}
+			}
+		
 
 		//watch for any changes to model data
 		$scope.$watch(function(){
