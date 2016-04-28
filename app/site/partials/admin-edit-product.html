@@ -1,64 +1,64 @@
 
 <!-- 	TODO #2: Populate fields with product data -->
 <article class="product-frm">
-		<hr>
 		<div class = "form-group attribute">
-			<label><big><big>Name</label>
+			<p class = "less-header-list">Name:
 			<input class = "form-control" type="text" name="name" ng-model="ctrl.product.name" required>
-		<hr>
+		<br>
 		</div>
 
 		<div class = "attribute">
-			<label><big><big>Image Url</label>
-			<input type="text" name="image" ng-model="ctrl.product.image" required>
-		<hr>
+			<p class = "less-header-list">Image Url:
+			<input class = "form-control" type="text" name="image" ng-model="ctrl.product.image" required>
+		<br>
 		</div>
 
 		<div class = "attribute">
-			<label><big><big>Description</label>
-			<textarea type="text" name="description" ng-model="ctrl.product.description" required></textarea>
-			<hr>
+			<p class = "less-header-list">Description:
+			<textarea class = "form-control aBitBigger" type="text" name="description" ng-model="ctrl.product.description" required></textarea>
+		<br>
 		</div>
 	
 		<div class = "attribute">
-			<label><big><big>Category</big></big></label>
+			<p class = "less-header-list">Category:
 			<!-- TODO #2: Set Options -->
-			<big><select name="category" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.product.category">
+			<big><select class = "form-control" name="category" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.product.category">
 			</select>
-			<hr>
+		<br>
 		</div>
 		
 		<div class = "attribute floating">
-			<label>Price</label>
-			<input type="number" name="price" ng-model="ctrl.product.price" required>
+			<p class = "less-header-list-other">Price:
+			<input class = "form-control smaller" type="number" name="price" ng-model="ctrl.product.price" required>
 		</div>
-		<p class = "emptyspace floating"> </p>
+		
 		<p class = "emptyspace floating"> </p>
 		<div class = "attribute floating">
-			<label>Quantity</label>
-			<input type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
+			<p class = "less-header-list-other">Quantity:
+			<input class = "form-control smaller" type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
 		
 		</div>
 		
-		<div>
-			<button class = "buttonstyle btn btn-success" type="submit" ng-click="ctrl.updateProduct()">
-				<img class = "icon" src="assets/NewPics/refresh.png"> 
+		<div class = "floating-right">
+			<button class = "buttonstyle btn-success" type="submit" ng-click="ctrl.updateProduct()">
+			<img class = "icon" src="assets/NewPics/refresh.png"> 
 				{{ctrl.product_update_btn}}
-			</button>
-
-			<p class = "emptyspace"></p>
-			<p class = "emptyspace"></p>
-			<p class = "emptyspace"></p>
-			<p class = "emptyspace"></p>
+			<hr>
 			
-			<button class = "buttonstyle btn btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
-				<img class = "icon" src="assets/NewPics/trash.png"> 
+			</button>
+			<p class = "emptyspace"> </p>
+			<p class = "emptyspace"> </p>
+			<p class = "emptyspace"> </p>
+			<button class = "buttonstyle btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
+				<img class = "icon" src="assets/NewPics/trash.png">
 				{{ctrl.product_delete_btn}}
+			
 			</button>
 		
 		</div>
 		</div>
-			<div class = "floating-title">
+		
+		<div class = "floating-title">
 				<img class = "icon-image" src="assets/NewPics/edit.png"> edit here
 				<img class = "icon-image" src="assets/NewPics/edit.png">
 		</div>

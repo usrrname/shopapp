@@ -1,0 +1,15 @@
+<p class = "title">Categories</p>
+	
+<div>
+	<table class="products-list table header-list">
+		<tr>
+			<th class = "header-list">Category</th>
+			<th class = "header-list edit-area">edit</th>
+		</tr>
+		<tr ng-repeat="category in ctrl.categories">
+				<td class="longlist">{{category.label}}</td>
+				<td class="longlist edit-area"><a ng-click="ctrl.editProduct(product)">
+			<img class = "icon-image" src="assets/NewPics/edit.png"></a></td>
+		</tr>
+	</table>
+</div>
