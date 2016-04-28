@@ -1,11 +1,14 @@
 /*PARTIALS 1: 
 	Admin Add Product STYLING*/
 
-/*1st*/
-/*2nd*/
-/*3rd*/
-/*4th*/
-/*5th*/
+/*Everything here is a copy of 
+	PARTIALS 3: as below;
+
+The only CSS change is:
+;
+
+
+*/
 
 /*----------------------------------*/
 
@@ -19,17 +22,39 @@
 
 /*2nd*/
 .header-list {
-	font-size:35px;
+	font-size:25px;
 	border:7px solid black;
 	text-align:center;
 	background-color:#ffffee;
+
+}
+
+.less-header-list {
+	font-size:25px;
+	text-shadow: 2px 2px gray;
+	/*border:3px black;*/
+	padding: 10px 10px 0px 10px;
+	background-color:#eeffee;
+	width:70%;
+	height:120px;
+}
+
+.less-header-list-other {
+	font-size:25px;
+	text-shadow: 2px 2px gray;
+	/*border:3px black;*/
+	padding: 10px 10px 0px 10px;
+	background-color:#eeffee;
+	width:70%;
+	height:100px;
 }
 
 /*3rd*/
 .longlist {
-	font-size:25px;
+	font-size:20px;
 	text-align:center;
 	border:5px solid #ccc;
+	padding: 5px 1px;
 }
 
 /*4th*/
@@ -45,6 +70,10 @@
 	margin:0px;
 }
 
+.blue {
+	background-color:blue;
+}
+
 /*----------------------------------*/
 
 /*PARTIALS 3: 
@@ -52,7 +81,7 @@
 
 /*1st*/
 .attribute {
-	font-size:20px;
+	font-size:35px;
 	color: black;
 }
 
@@ -61,7 +90,9 @@
 	border:4px solid #aaaccc;
 	float:left;
 	margin: 2px;
-	font-size:20px;
+	font-size:60px;
+	width: 100px;
+	height:100px;
 }
 
 /*3rd*/
@@ -78,21 +109,62 @@
 .floating-title {
 	position:absolute;
 	top:25px;
-	left:510px;
-	font-size:45px;
+	left:810px;
+	font-size:100px;
+	border:1px dotted gray;
+	padding: 0px 10px;
+}
+
+.floating-right {
+	position:absolute;
+	top:200px;
+	left:1010px;
+	width:100px;
 }
 
 .icon {
-	width:40px;
+	width:50px;
+}
+
+.aBitBigger {
+	height:200px;
 }
 
 /*----------------------------------*/
 
-/*PARTIALS 4: 
-	Admin (general) STYLING*/
+/*PARTIALS 4:
+	Admin sidebar STYLINGS*/
 
-/*1st*/
-/*2nd*/
+.techpic {
+	position: relative;
+	top:0px;
+	left:60px;
+	width:150px;
+}
+
+hr.style18 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: white; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr.style18:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: white; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+ a:hover {
+ 	text-shadow: 2px 2px white;
+ }
+
+/*2nd
 /*3rd*/
 /*4th*/
 /*5th*/
@@ -108,13 +180,4 @@
 /*4th*/
 /*5th*/
 
-/*----------------------------------*/
 
-/*PARTIALS 6: 
-	Shop Main STYLING*/
-
-/*1st*/
-/*2nd*/
-/*3rd*/
-/*4th*/
-/*5th*/
