@@ -183,9 +183,10 @@
 			if (!duplicate) {
 				for(var i = 0; i < self.products.length; i++) {
 					if(self.products[i].id == id) {
-						self.cart.push(self.products[i]);
-						self.cart[self.cart.length - 1].count = 1;
-						
+						if (self.products[i].quantity != 0){
+							self.cart.push(self.products[i]);
+							self.cart[self.cart.length - 1].count = 1;
+						}
 					}
 				}
 			}
