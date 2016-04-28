@@ -112,7 +112,7 @@
 		}
 
 		function updateProduct(product,productId){
-			api.request('/products/'+productId,product,'PUT')
+			return api.request('/products/'+productId,product,'PUT')
 			.then(function(res){
 				//console.log(res);
 				if(res.status === 200){
@@ -193,9 +193,10 @@
 		}
 
 		function storageUpdate(){
-			for (var i = 0; i < self.cart.length; i++){
+			for (var i = 0; i < self.cart.length;i++){
 				if (self.cart[i].count == 0){
 					self.cart.splice(i,1);
+					i--;
 				}
 			}
 			var cart = angular.toJson(self.cart);
@@ -225,7 +226,7 @@
 		function setCategories() {
 	//		console.log(localStorage);
 			var categories = JSON.parse(localStorage.getItem("categories"));
-			if (categories.length != null) {
+			if (categories != null) {
 				//get categories from localStorage
 				self.categories = categories;
 				console.log("WTF, Categories exits!");
