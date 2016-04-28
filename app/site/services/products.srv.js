@@ -151,7 +151,7 @@
 					self.products[i].quantity = product.quantity;
 				}
 			}
-			$state.go('admin.dash');
+			// $state.go('admin.dash');
 		}
 
 		function removeProduct(productId){
