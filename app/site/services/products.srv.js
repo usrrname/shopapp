@@ -23,8 +23,6 @@
 		} else {
 			self.orders = JSON.parse(localStorage.getItem("orders"));
 		}
-		
-		// SEED DATA - Comment Out after first load
 
 		//public functions
 		self.getProduct = getProduct;
@@ -39,6 +37,7 @@
 		self.cartRemove = cartRemove;
 		self.cartRefresh = cartRefresh;
 		self.storageUpdate = storageUpdate;
+		self.setCategories = setCategories;
 
 		self.getProducts()
 			.then(function(){
@@ -208,6 +207,33 @@
 			}
 			self.storageUpdate();
 		}
+
+		self.defaultCategories = [
+			{label:'Shirts',value:'shirts'},
+			{label:'Pants',value:'pants'},
+			{label:'Shoes',value:'shoes'},
+			{label:'Outerwear',value:'outerwear'},
+			{label:'Accessories',value:'accessories'},
+		];
+
+		function setCategories() {
+	//		console.log(localStorage);
+			var categories = JSON.parse(localStorage.getItem("categories"));
+			if (categories.length != null) {
+				//get categories from localStorage
+				self.categories = categories;
+				console.log("WTF, Categories exits!");
+			}
+			else {
+				//set default categories
+				var categoriesToJSON = angular.toJson(self.defaultCategories);
+				localStorage.setItem("categories", categoriesToJSON);
+				console.log(localStorage);
+	
+				console.log("default categories set!");
+			}		
+		}
+
 
 		function cartRefresh(){
 			console.log('refreshing cart...');

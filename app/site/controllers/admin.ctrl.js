@@ -9,6 +9,9 @@
 		var adminVm = this;
 		adminVm.productSrv = productSrv;
 
+		//Setting Categories on Admin load
+		productSrv.setCategories();
+
 		//check if logged in
 		if(localStorage.authToken == undefined || localStorage.authToken == null){
 			$state.go('auth');
