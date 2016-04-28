@@ -63,6 +63,12 @@
 				templateUrl:'site/partials/admin-edit-product.html',
 			})
 
+			.state('admin.orders_list',{
+				url:'/orders_list',
+				controller:'OrdersCtrl as ctrl',
+				templateUrl:'site/partials/admin-orders-review.html',
+			})
+
 			.state('auth',{
 				url:'/auth',
 				templateUrl:'site/partials/auth-main.html',
