@@ -11,6 +11,7 @@
 		chkVm.theTotal = theTotal;
 		chkVm.checkout = checkout;
 		chkVm.productSrv = productSrv;
+		chkVm.serialNumAssign = serialNumAssign;
 
 		function theTotal() {
 			chkVm.total = [0, 0];
@@ -34,6 +35,8 @@
 				ccnumber: chkVm.ccnumber,
 				cvc: chkVm.cvc,
 				ccexpiry: chkVm.ccexpiry,
+				orderNum: chkVm.serialNumAssign(),
+				orderTotal: chkVm.theTotal()
 			}
 
 			chkVm.productSrv.orders.push(tempOrders);
@@ -46,6 +49,16 @@
 			chkVm.productSrv.cartRefresh();
 			$location.path('/');
 			
+		}
+
+		function serialNumAssign() {
+			var text = "";
+		    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+		    for( var i=0; i < 5; i++ )
+		        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+		    return text;
 		}
 	}
 })();
