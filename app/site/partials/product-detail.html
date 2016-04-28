@@ -1,5 +1,5 @@
-<div>
-	<h1>Product Detail</h1>
+<div class = "item-detail">
+	<h4>Product Details</h4>
 	<div id="product-card" class="product-card">
 		<a class="product-buy">
 			<div class="table-view">
@@ -8,23 +8,19 @@
 				</div>
 			</div>
 		</a>
-		<!-- SET PRODUCT IMAGE -->
-		<div>
-			Product ID:{{ctrl.product.id}}
-		</div>
-		<div class="product-info">
-			<div class="product-name">
-				<!-- SET PRODUCT NAME -->
-				Product Name: {{ctrl.product.name}}
+			<div>
+				<img src = "{{ctrl.product.image}}">
+				
+			</div>
+			<div class="product-info">
+				<p>Product ID: {{ctrl.product.id}}</p>
+				<!-- Product Name:  -->{{ctrl.product.name}}
 			</div>
 			<div class="product-brand">
-				<!-- SET PRODUCT Description -->
-				Description: {{ctrl.product.description}}
-				<em></em>
-			</div>
+					<!-- Description:--><em>{{ctrl.product.description}}</em>
+				</div>
 			<div class="product-cost">
-				Price : {{ctrl.product.price}}
-				<!-- SET PRODUCT PRICE WITH FILTER -->
+					<!-- Price:  -->{{ctrl.product.price | currency}}
 			</div>
 		</div>
 	</div>
