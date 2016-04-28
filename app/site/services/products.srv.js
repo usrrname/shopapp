@@ -39,6 +39,11 @@
 		self.storageUpdate = storageUpdate;
 		self.setCategories = setCategories;
 
+		// Call function at the start to set categories in variable self.categories
+		// so that can be called using productSrv
+		
+		setCategories();
+
 		self.getProducts()
 			.then(function(){
 
@@ -112,7 +117,7 @@
 		}
 
 		function updateProduct(product,productId){
-			api.request('/products/'+productId,product,'PUT')
+			return api.request('/products/'+productId,product,'PUT')
 			.then(function(res){
 				//console.log(res);
 				if(res.status === 200){
@@ -182,9 +187,10 @@
 			if (!duplicate) {
 				for(var i = 0; i < self.products.length; i++) {
 					if(self.products[i].id == id) {
-						self.cart.push(self.products[i]);
-						self.cart[self.cart.length - 1].count = 1;
-						
+						if (self.products[i].quantity != 0){
+							self.cart.push(self.products[i]);
+							self.cart[self.cart.length - 1].count = 1;
+						}
 					}
 				}
 			}
@@ -192,9 +198,10 @@
 		}
 
 		function storageUpdate(){
-			for (var i = 0; i < self.cart.length; i++){
+			for (var i = 0; i < self.cart.length;i++){
 				if (self.cart[i].count == 0){
 					self.cart.splice(i,1);
+					i--;
 				}
 			}
 			var cart = angular.toJson(self.cart);
@@ -222,20 +229,18 @@
 		];
 
 		function setCategories() {
-		// console.log(localStorage);
 			var categories = JSON.parse(localStorage.getItem("categories"));
 			if (categories != null) {
-				//get categories from localStorage
+
+				//get categories from localStorage if they exist
+
+
 				self.categories = categories;
-				console.log("WTF, Categories exits!");
 			}
 			else {
-				//set default categories
+				//set default categories if no category exists
 				var categoriesToJSON = angular.toJson(self.defaultCategories);
 				localStorage.setItem("categories", categoriesToJSON);
-				console.log(localStorage);
-	
-				console.log("default categories set!");
 			}		
 		}
 

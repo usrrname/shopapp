@@ -3,7 +3,7 @@
 		.module('shopApp')
 		.controller('ShopCtrl',ShopCtrl)
 
-	function ShopCtrl($location,$scope,productSrv,products, $uibModal){
+	function ShopCtrl($location,$scope,productSrv,products, $uibModal, $timeout){
 		var shopVm = this;
 
 		//TODO #3 Capture resolved products for view
@@ -28,6 +28,7 @@
 		}
 
 		function openModal(){
+			console.log(shopVm.products);
 			$uibModal.open({
 			templateUrl: 'site/partials/modal.html',
 			controller: 'ModalCtrl',
@@ -53,23 +54,39 @@
 		}
 
 		function max(id){
-			if (shopVm.productSrv.cart.length != undefined)
-				for (var i = 0; i < shopVm.productSrv.cart.length; i++){
-					if (shopVm.productSrv.cart[i].id == id){
-						if (shopVm.productSrv.cart[i].count == shopVm.productSrv.cart[i].quantity){
+				if (shopVm.productSrv.cart.length != undefined){
+					for (var i = 0; i < shopVm.productSrv.cart.length; i++){
+						if (shopVm.productSrv.cart[i].id == id){
+							if (shopVm.productSrv.cart[i].count == shopVm.productSrv.cart[i].quantity){
+								return true;
+							}
+						}
+					}
+				}
+				for (var i = 0; i < shopVm.products.length; i++){
+					if (shopVm.products[i].id == id){
+						if (shopVm.products[i].quantity == 0){
 							return true;
 						}
 					}
 				}
-			}
-		
 
-		//watch for any changes to model data
+
+
+		}
+
+		// watch for any changes to model data
 		$scope.$watch(function(){
 	    	return productSrv.products;
 		}, function (newValue) {
 		    shopVm.products = productSrv.products;
 		});
+
+		// $scope.$watchCollection(function() {
+		// 	return productSrv.products;
+		// }, function(newValue) {
+		// 	shopVm.products = newValue;
+		// })
 	}
 
 
