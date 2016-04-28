@@ -84,10 +84,12 @@ nav .fa-shopping-cart{
 }
 nav .cart{
 	font-size:1.6rem;
+	text-decoration: none;
 }
 
 nav .login{
 	font-size:1.6rem;
+	text-decoration: none;
 }
 
 /*
