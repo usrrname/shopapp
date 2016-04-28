@@ -166,11 +166,16 @@
 
 		// CART FUNCTIONS
 		function cartAdd(id) {
+			console.log("adding");
 			var duplicate = false;
 			// Check if item's already in cart, add quanitity if so
 			for(var i = 0; i < self.cart.length; i++) {
 				if(self.cart[i].id == id) {
-					self.cart[i].count += 1;
+					if (self.cart[i].count >= self.cart[i].quantity){
+						self.cart[i].count = self.cart[i].quantity;
+					} else {
+						self.cart[i].count += 1;	
+					}
 					duplicate = true;
 				}
 			}

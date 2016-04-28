@@ -264,3 +264,18 @@ table * {
 .bottomSpacing {
 	margin-bottom: 50px;
 }
+
+/*Modal Styling*/
+
+.cartCount{
+	text-align:center;
+}
+
+.maxError{
+	color:red;
+	opacity:0;
+}
+
+.maxed{
+	opacity:1;
+}
