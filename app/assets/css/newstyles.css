@@ -1,17 +1,3 @@
-/*PARTIALS 1: 
-	Admin Add Product STYLING*/
-
-/*Everything here is a copy of 
-	PARTIALS 3: as below;
-
-The only CSS change is:
-;
-
-
-*/
-
-/*----------------------------------*/
-
 /*PARTIALS 2: 
 	Admin Dashboard STYLING*/
 
@@ -26,7 +12,6 @@ The only CSS change is:
 	border:7px solid black;
 	text-align:center;
 	background-color:#ffffee;
-
 }
 
 .less-header-list {
@@ -51,6 +36,13 @@ The only CSS change is:
 
 /*3rd*/
 .longlist {
+	font-size:20px;
+	text-align:center;
+	border:5px solid #ccc;
+	padding: 5px 1px;
+}
+
+.longlist-category {
 	font-size:20px;
 	text-align:center;
 	border:5px solid #ccc;
@@ -118,7 +110,14 @@ The only CSS change is:
 .floating-right {
 	position:absolute;
 	top:200px;
-	left:1010px;
+	left:910px;
+	width:100px;
+}
+
+.floating-right-also {
+	position:absolute;
+	top:350px;
+	left:910px;
 	width:100px;
 }
 
@@ -163,21 +162,5 @@ hr.style18:before {
  a:hover {
  	text-shadow: 2px 2px white;
  }
-
-/*2nd
-/*3rd*/
-/*4th*/
-/*5th*/
-
-/*----------------------------------*/
-
-/*PARTIALS 5: 
-	Authorization main STYLING*/
-
-/*1st*/
-/*2nd*/
-/*3rd*/
-/*4th*/
-/*5th*/
 
 

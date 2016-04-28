@@ -33,6 +33,7 @@
 		</div>
 		
 		<p class = "emptyspace floating"> </p>
+
 		<div class = "attribute floating">
 			<p class = "less-header-list-other">Quantity:
 			<input class = "form-control smaller" type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
@@ -44,18 +45,22 @@
 			<img class = "icon" src="assets/NewPics/refresh.png"> 
 				{{ctrl.product_update_btn}}
 			<hr>
-			
-			</button>
-			<p class = "emptyspace"> </p>
-			<p class = "emptyspace"> </p>
-			<p class = "emptyspace"> </p>
-			<button class = "buttonstyle btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
-				<img class = "icon" src="assets/NewPics/trash.png">
-				{{ctrl.product_delete_btn}}
+
 			
 			</button>
 		
+			<p><center> Add Product</p>
+		
 		</div>
+
+		<div class = "floating-right-also">	
+			<button class = "buttonstyle btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
+				<img class = "icon" src="assets/NewPics/trash.png">
+				{{ctrl.product_delete_btn}}
+			</button>
+			<p><center> Delete Product</p>
+		</div>
+		
 		</div>
 		
 		<div class = "floating-title">
