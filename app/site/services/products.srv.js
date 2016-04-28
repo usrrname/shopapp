@@ -10,12 +10,12 @@
 		self.products = [];
 		
 		if(localStorage.getItem("cart") == undefined){
-			console.log("undefined cart");
+			//console.log("undefined cart");
 			self.cart = [];
 		} else {
-			console.log(localStorage.getItem("cart"));
+			//console.log(localStorage.getItem("cart"));
 			cartRefresh();
-			console.log("defined cart");
+			//console.log("defined cart");
 		}
 
 		if(localStorage.getItem("orders") == undefined){
@@ -23,8 +23,6 @@
 		} else {
 			self.orders = JSON.parse(localStorage.getItem("orders"));
 		}
-		
-		// SEED DATA - Comment Out after first load
 
 		//public functions
 		self.getProduct = getProduct;
@@ -39,6 +37,7 @@
 		self.cartRemove = cartRemove;
 		self.cartRefresh = cartRefresh;
 		self.storageUpdate = storageUpdate;
+		self.setCategories = setCategories;
 
 		self.getProducts()
 			.then(function(){
@@ -90,7 +89,7 @@
 			return api.request('/products',{},'GET')
 			.then(function(res){
 				//success callback
-				console.log(res);
+				//console.log(res);
 				self.products = res.data.products;
 				return res.data.products;
 			},function(res){
@@ -203,19 +202,46 @@
 		}
 
 		function cartRemove(id) {
-			console.log("remove");
+			//console.log("remove");
 			for (var i = 0; i < self.cart.length; i++){
 				if (self.cart[i].id === id){
-					console.log("cart before: "+self.cart);
+					//console.log("cart before: "+self.cart);
 					self.cart.splice(i,1);
-					console.log("cart after: "+self.cart);
+					//console.log("cart after: "+self.cart);
 				}
 			}
 			self.storageUpdate();
 		}
 
+		self.defaultCategories = [
+			{label:'Shirts',value:'shirts'},
+			{label:'Pants',value:'pants'},
+			{label:'Shoes',value:'shoes'},
+			{label:'Outerwear',value:'outerwear'},
+			{label:'Accessories',value:'accessories'},
+		];
+
+		function setCategories() {
+	//		console.log(localStorage);
+			var categories = JSON.parse(localStorage.getItem("categories"));
+			if (categories.length != null) {
+				//get categories from localStorage
+				self.categories = categories;
+				console.log("WTF, Categories exits!");
+			}
+			else {
+				//set default categories
+				var categoriesToJSON = angular.toJson(self.defaultCategories);
+				localStorage.setItem("categories", categoriesToJSON);
+				console.log(localStorage);
+	
+				console.log("default categories set!");
+			}		
+		}
+
+
 		function cartRefresh(){
-			console.log('refreshing cart...');
+			//console.log('refreshing cart...');
 			self.cart = JSON.parse(localStorage.getItem("cart"));
 		}
 

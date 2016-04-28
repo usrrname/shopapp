@@ -1,10 +1,10 @@
 <div class = "item-detail">
 	<h4>Product Details</h4>
 	<div id="product-card" class="product-card">
-		<a class="product-buy">
+		<a class="product-buy" ng-click="ctrl.addToCart(ctrl.product.id)">
 			<div class="table-view">
 				<div class="table-cell">
-					<i class="fa fa-shopping-cart" ng-click="ctrl.addToCart"></i>
+					<i class="fa fa-shopping-cart"></i>
 				</div>
 			</div>
 		</a>

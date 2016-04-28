@@ -69,6 +69,12 @@
 				templateUrl:'site/partials/admin-orders-review.html',
 			})
 
+			.state('admin.category',{
+				url:'/category',
+				controller:'CategoryCtrl as ctrl',
+				templateUrl:'site/partials/category.html',
+			})
+
 			.state('auth',{
 				url:'/auth',
 				templateUrl:'site/partials/auth-main.html',
