@@ -282,9 +282,16 @@ table * {
 	z-index:2;
 	font-size:30px;
 	font-weight:bold;
+	position:absolute;
+	top:40px;
+	right:10px;
 }
 .maxed{
 	opacity:1;
+}
+
+.imgMaxed > .product-img{
+	opacity: 0.3;
 }
 
 
