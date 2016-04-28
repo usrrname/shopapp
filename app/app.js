@@ -22,17 +22,17 @@
 					}
 				}
 			})
-			// .state('shop.prod',{
-			// 	url:'/prod/:productId',
-			// 	templateUrl:'site/partials/product-detail.html',
-			// 	controller:'ProdDetailCtrl as ctrl',
-			// 	//TODO #3 resolve products before main page load
-			// 	// resolve:{
-			// 	// 	products:function(productSrv){
-			// 	// 		return productSrv.getProducts();
-			// 	// 	}
-			// 	//}
-			// })
+			.state('shop.prod',{
+				url:'/prod/:productId',
+				templateUrl:'site/partials/product-detail.html',
+				controller:'ProdDetailCtrl as ctrl',
+				//TODO #3 resolve products before main page load
+				resolve:{
+					products:function(productSrv){
+						return productSrv.getProducts();
+					}
+				}
+			})
 			.state('admin',{
 				url:'/admin',
 				templateUrl:'site/partials/admin.html',
@@ -63,10 +63,22 @@
 				templateUrl:'site/partials/admin-edit-product.html',
 			})
 
+			.state('admin.orders_list',{
+				url:'/orders_list',
+				controller:'OrdersCtrl as ctrl',
+				templateUrl:'site/partials/admin-orders-review.html',
+			})
+
 			.state('auth',{
 				url:'/auth',
 				templateUrl:'site/partials/auth-main.html',
 				controller:'AuthCtrl as ctrl',
+			})
+
+			.state('checkout', {
+				url: '/checkout',
+				templateUrl: 'site/partials/checkout.html',
+				controller: 'CheckoutCtrl as ctrl'
 			});
 
 			$httpProvider.interceptors.push(function(){

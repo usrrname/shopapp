@@ -4,7 +4,7 @@
 		.module('shopApp')
 		.controller('ModalCtrl', ModalCtrl);
 
-	function ModalCtrl($state, $uibModalInstance, productSrv, api){	
+	function ModalCtrl($location, $state, $uibModalInstance, productSrv, api){	
 		
 		var modalVm	= this;
 		modalVm.cart = productSrv.getCart();
@@ -14,6 +14,7 @@
 		modalVm.removeSelected = removeSelected;
 		modalVm.closeModal = closeModal;
 		modalVm.updateCart = updateCart;
+		modalVm.checkout = checkout;
 		
 		function removeSelected(id){
 			for (var i = 0; i < modalVm.cart.length; i++){
@@ -40,6 +41,11 @@
 		function closeModal(){
 			productSrv.cartRefresh();
 			$uibModalInstance.dismiss('cancel');
+		}
+
+		function checkout() {
+			modalVm.closeModal();
+			$location.path('/checkout');
 		}
 	}
 
