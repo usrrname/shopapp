@@ -7,13 +7,20 @@
 	function ProductCtrl($stateParams,api,productSrv,$location){
 		var productVm = this;
 
-		productVm.categories = [
-			{label:'Shirts',value:'shirts'},
-			{label:'Pants',value:'pants'},
-			{label:'Shoes',value:'shoes'},
-			{label:'Outerwear',value:'outerwear'},
-			{label:'Accessories',value:'accessories'},
-		];
+		//Setting default Categories
+		productSrv.setCategories();
+		productVm.categories = productSrv.categories;
+
+		// productVm.categories = [
+		// 	{label:'Shirts',value:'shirts'},
+		// 	{label:'Pants',value:'pants'},
+		// 	{label:'Shoes',value:'shoes'},
+		// 	{label:'Outerwear',value:'outerwear'},
+		// 	{label:'Accessories',value:'accessories'},
+		// ];
+
+		// var categoriesToJSON = angular.toJson(productVm.categories);
+		// localStorage.setItem("categories", categoriesToJSON);
 
 		productVm.product = {
 			};

@@ -5,11 +5,11 @@
 	font-size:0;
 }
 #admin h3{
-	font-size:2.5rem;
+	font-size:4.5rem;
 	color:white;
 }
 #admin .nav-panel{
-	background:#ff6d37;
+	background:gray;
 	padding:40px;
 	width:25%;
 	height:100%;
@@ -31,6 +31,7 @@
 }
 #admin .nav-panel ul li > a{
 	color:white;
+	font-size:30px;
 }
 #admin .nav-panel ul li:hover{
 	color:#2b96ff;
@@ -43,20 +44,19 @@
 	width:75%;
 	font-size:1rem;
 	color:#555;
-
 }
 
 #admin .products-list a{
 	color:#2b96ff;
 }
 #admin .product-frm{
-	width:50%;
-	min-width:400px;
+	width:30%;
+	min-width:500px;
 }
 
 #admin label{
 	display: block;
-	font-size:1rem;
+	font-size:2rem;
 	font-weight:200;
 	margin-bottom:5px;
 }
@@ -65,5 +65,5 @@
 	width:100%;
 }
 #admin .product-frm select{
-	font-size:1rem;
+	font-size:2rem;
 }

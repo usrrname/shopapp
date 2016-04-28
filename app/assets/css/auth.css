@@ -10,7 +10,7 @@
   padding-right: 40px;
 }
 .login-page h3{
-  font-size:2rem;
+  font-size:7rem;
   color:#555;
 }
 /* BrainStation logo */
@@ -21,8 +21,8 @@
 
 /* Main Content - login form */
 .login-page .main-content {
-  padding-top: 65px;
-  width: 400px;
+  padding-top: 100px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -36,13 +36,13 @@
 }
 
 .login-page .btn-primary {
-  background-color: #ff6d37;
+  background-color: green;
   outline:none;
 }
 
 .login-page .btn-primary:hover {
-  background-color: #FF5B1E;
-  border-color: #FF5B1E;
+  background-color: lightgreen;
+  border-color: lightgreen;
 }
 
 .login-page .help-links p {
@@ -62,8 +62,6 @@
   }
 }
 
-
-
 /*.login-form {
   margin: auto;
   width: 400px;
@@ -78,7 +76,7 @@
 }
 
 .bs-form__button.btn-lg {
-    height: 47px;
+    height: 80px;
 }
 .form-input.btn-primary {
     border: 0;
@@ -86,7 +84,7 @@
 }
 
 .bs-form__button {
-    font-weight: 400;
+    font-weight: 600;
     width: 100%;
     margin-bottom: 15px;
     font-size: 16px;
@@ -95,14 +93,14 @@
 
 .form-input {
     width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
     padding-left: 15px;
-    font-size: 13px;
+    font-size: 25px;
     font-family: 'Open Sans', "Helvetica", "Arial", sans-serif;
     border: 1px solid #d6d6d6;
     color: #808080;
-    border-radius: 2px;
+    border-radius: 30px;
 }
 
 .login-shade-text {
