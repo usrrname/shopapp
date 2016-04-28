@@ -53,7 +53,7 @@
 		}
 
 		function max(id){
-			if (shopVm.productSrv.cart.length != undefined)
+			if (shopVm.productSrv.cart.length != undefined){
 				for (var i = 0; i < shopVm.productSrv.cart.length; i++){
 					if (shopVm.productSrv.cart[i].id == id){
 						if (shopVm.productSrv.cart[i].count == shopVm.productSrv.cart[i].quantity){
@@ -62,7 +62,14 @@
 					}
 				}
 			}
-		
+			for (var i = 0; i < productSrv.products.length; i++){
+				if (productSrv.products[i].id == id){
+					if (productSrv.products[i].quantity == 0){
+						return true;
+					}
+				}
+			}
+		}
 
 		//watch for any changes to model data
 		$scope.$watch(function(){
