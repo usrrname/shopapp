@@ -23,7 +23,7 @@
 			shopVm.filter = "";
 
 			shopVm.customFilter = shopVm.search;
-			console.log(shopVm.search);
+			//console.log(shopVm.search);
 			
 		}
 
@@ -43,7 +43,7 @@
 			controllerAs: 'ctrl',
 			resolve: {
 				product: function(){
-					console.log("this works" + id);
+					//console.log("this works" + id);
 					return productSrv.getProduct(shopVm.productId).then(function(res) {
 						return res.data.product;
 					});
