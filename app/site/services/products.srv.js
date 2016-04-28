@@ -222,9 +222,9 @@
 		];
 
 		function setCategories() {
-	//		console.log(localStorage);
+		// console.log(localStorage);
 			var categories = JSON.parse(localStorage.getItem("categories"));
-			if (categories.length != null) {
+			if (categories != null) {
 				//get categories from localStorage
 				self.categories = categories;
 				console.log("WTF, Categories exits!");
