@@ -1,49 +1,47 @@
 
 
 <article class="product-frm">
-	<hr>
 	<form name="add-product" ng-submit="ctrl.addProduct()">
 		
 		<div class = "form-group attribute">
-			<label><big><big>Name</big></big></label>
+			<p class = "less-header-list">Name:
 			<input class = "form-control" type="text" name="name" ng-model="ctrl.name" required>
-		<hr>
 		</div>
 
 		<div class = "attribute">
-			<label><big><big>Image</big></big></label>
+			<p class = "less-header-list">Image:
 			<input class = "form-control" type="text" name="image" ng-model="ctrl.image" required>
-		<hr>
 		</div>
 
 		<div class = "attribute">
-			<label><big><big>Description</big></big></label>
+			<p class = "less-header-list">Description:
 			<textarea class = "form-control" type="text" name="name" ng-model="ctrl.description" required></textarea>
-		<hr>
 		</div>
 
 		<div class = "attribute">
-			<label><big><big>Category</big></big></label>
+			<p class = "less-header-list">Category:
 			<big><select  class = "form-control" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.category" name="category">
 			</big></select>
-			<hr>
+			
 		</div>
 
 		<div class = "attribute floating">
-			<label>Price</label>
-			<input  class = "form-control" type="number" name="price" ng-model="ctrl.price" required>
+			<p class = "less-header-list-other">Price:
+			<input  class = "form-control smaller" type="number" name="price" ng-model="ctrl.price" required>
 		</div>
 		
-		<p class = "emptyspace floating"> </p>
-		<p class = "emptyspace floating"> </p>
+		<p class = "emptyspace floating"></p>
+
 		<div class = "attribute floating">
-			<label>Quantity</label>
-			<input  class = "form-control" type="number" name="quantity" ng-model="ctrl.quantity" required>
+			<p class = "less-header-list-other">Quantity:
+			<input  class = "form-control smaller" type="number" name="quantity" ng-model="ctrl.quantity" required>
 		</div>
 		
-		<div>
-			<button class = "buttonstyle btn btn-success" type="submit">
-			<img class = "icon" src="assets/NewPics/add.png"> Add Product</button>
+		<div class = "floating-right">
+			<button class = "buttonstyle btn-success" type="submit">
+			<img class = "icon" src="assets/NewPics/add.png">
+			</button>
+			<p><center> Add Product</p>
 		
 		</div>
 		<div class = "floating-title">
