@@ -11,6 +11,19 @@ body{
 	color:#666;
 	font-size:100%;
 }
+
+/*custom classes*/
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
 /*
 Globals
 */
@@ -54,6 +67,9 @@ a{
 	text-decoration: none;
 	color:#333;
 }
+a:hover{
+	text-decoration: none;
+}
 /*
 Nav
 */
@@ -84,12 +100,10 @@ nav .fa-shopping-cart{
 }
 nav .cart{
 	font-size:1.6rem;
-	text-decoration: none;
 }
 
 nav .login{
 	font-size:1.6rem;
-	text-decoration: none;
 }
 
 /*
