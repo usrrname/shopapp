@@ -15,6 +15,7 @@
 		modalVm.closeModal = closeModal;
 		modalVm.updateCart = updateCart;
 		modalVm.checkout = checkout;
+		modalVm.max = max;
 		
 		function removeSelected(id){
 			for (var i = 0; i < modalVm.cart.length; i++){
@@ -34,8 +35,7 @@
 		};
 
 		function updateCart(){
-			productSrv.storageUpdate();
-			modalVm.closeModal();
+			productSrv.storageUpdate();				
 		}
 
 		function closeModal(){
@@ -47,6 +47,16 @@
 			modalVm.closeModal();
 			$location.path('/checkout');
 		}
+
+		function max(){
+			for (var i = 0; i < modalVm.cart.length; i++){
+				if (modalVm.cart[i].count == undefined){
+					modalVm.cart[i].count = modalVm.cart[i].quantity;
+				}
+			}
+		}
+
+		
 	}
 
 })();

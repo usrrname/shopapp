@@ -11,13 +11,20 @@
 					<th>Item Name</th>
 					<th>Price</th>
 					<th>Quantity</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in ctrl.cart">
 					<td>{{item.name}}</td>
 					<td>{{item.price}}</td>
-					<td><input type="number" min="0" ng-model="item.count"></input></td>
+					<td class="cartCount"><input type="number" min="0" max="{{item.quantity}}" ng-model="item.count" ng-blur="ctrl.max()"></input>
+					</td>
+					<td>
+						<span class="maxError" ng-class="{maxed: item.count == item.quantity}">
+							Max Quantity Reached
+						</span>
+					</td>
 					<td><button type="button" class="close" style="color:red" aria-label="Close"><span aria-hidden="true" ng-click="ctrl.cartRemove(item.id)">&times;</span></button></td>
 					<!-- ctrl.productSrv.cartRemove(item.id) -->
 				</tr>
