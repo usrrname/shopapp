@@ -276,6 +276,15 @@ table * {
 	opacity:0;
 }
 
+.productMaxed{
+	color:red;
+	opacity:0;
+	z-index:2;
+	font-size:30px;
+	font-weight:bold;
+}
 .maxed{
 	opacity:1;
 }
+
+
