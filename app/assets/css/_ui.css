@@ -294,4 +294,8 @@ table * {
 	opacity: 0.3;
 }
 
+.item-detail{
+	text-align: center;
+	font-size: 1.5em;
+}
 
