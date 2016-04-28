@@ -10,9 +10,18 @@
 		self.products = [];
 		
 		if(localStorage.getItem("cart") == undefined){
-			self.cart = []
+			console.log("undefined cart");
+			self.cart = [];
 		} else {
+			console.log(localStorage.getItem("cart"));
 			cartRefresh();
+			console.log("defined cart");
+		}
+
+		if(localStorage.getItem("orders") == undefined){
+			self.orders = [];
+		} else {
+			self.orders = JSON.parse(localStorage.getItem("orders"));
 		}
 		
 		// SEED DATA - Comment Out after first load
@@ -26,10 +35,10 @@
 		self.removeProduct = removeProduct;
 		self.deleteProduct = deleteProduct;
 		self.cartAdd = cartAdd;
-		self.storageUpdate = storageUpdate;
+		self.getCart = getCart;
 		self.cartRemove = cartRemove;
 		self.cartRefresh = cartRefresh;
-		self.searchFilter = searchFilter;
+		self.storageUpdate = storageUpdate;
 
 		self.getProducts()
 			.then(function(){
@@ -81,7 +90,7 @@
 			return api.request('/products',{},'GET')
 			.then(function(res){
 				//success callback
-				console.log("got products");
+				console.log(res);
 				self.products = res.data.products;
 				return res.data.products;
 			},function(res){
@@ -155,16 +164,6 @@
 			}
 		}
 
-		function storageUpdate(){
-			for (var i = 0; i < self.cart.length; i++){
-				if (self.cart[i].count == 0){
-					self.cart.splice(i,1);
-				}
-			}
-			var cart = angular.toJson(self.cart);
-			localStorage.setItem("cart", cart);	
-		}
-
 		// CART FUNCTIONS
 		function cartAdd(id) {
 			var duplicate = false;
@@ -188,6 +187,16 @@
 			self.storageUpdate();
 		}
 
+		function storageUpdate(){
+			for (var i = 0; i < self.cart.length; i++){
+				if (self.cart[i].count == 0){
+					self.cart.splice(i,1);
+				}
+			}
+			var cart = angular.toJson(self.cart);
+			localStorage.setItem("cart", cart);	
+		}
+
 		function cartRemove(id) {
 			console.log("remove");
 			for (var i = 0; i < self.cart.length; i++){
@@ -201,16 +210,14 @@
 		}
 
 		function cartRefresh(){
+			console.log('refreshing cart...');
 			self.cart = JSON.parse(localStorage.getItem("cart"));
 		}
 
-		function searchFilter(){
-			console.log("searchfiltering");
-			self.filter = "";
-
-			self.customFilter = self.search;
-			console.log(self.search);
-			
+		function getCart() {
+			self.cart = JSON.parse(localStorage.getItem("cart"));
+			return self.cart;
 		}
+
 	}
 })();

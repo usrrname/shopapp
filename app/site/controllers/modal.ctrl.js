@@ -1,0 +1,52 @@
+(function(){
+
+	angular
+		.module('shopApp')
+		.controller('ModalCtrl', ModalCtrl);
+
+	function ModalCtrl($location, $state, $uibModalInstance, productSrv, api){	
+		
+		var modalVm	= this;
+		modalVm.cart = productSrv.getCart();
+
+		//Public function
+		modalVm.cartRemove = cartRemove;
+		modalVm.removeSelected = removeSelected;
+		modalVm.closeModal = closeModal;
+		modalVm.updateCart = updateCart;
+		modalVm.checkout = checkout;
+		
+		function removeSelected(id){
+			for (var i = 0; i < modalVm.cart.length; i++){
+				if (modalVm.cart[i].id === id){
+					console.log("cart before: " + modalVm.cart);
+					modalVm.cart.splice(i,1);
+					console.log("selection removed");
+				}
+			}
+			var cart = angular.toJson(modalVm.cart);
+			localStorage.setItem("cart", cart);
+		};
+
+		function cartRemove(id) {
+			removeSelected(id);
+			// productSrv.storageUpdate();
+		};
+
+		function updateCart(){
+			productSrv.storageUpdate();
+			modalVm.closeModal();
+		}
+
+		function closeModal(){
+			productSrv.cartRefresh();
+			$uibModalInstance.dismiss('cancel');
+		}
+
+		function checkout() {
+			modalVm.closeModal();
+			$location.path('/checkout');
+		}
+	}
+
+})();
