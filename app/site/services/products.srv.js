@@ -39,6 +39,11 @@
 		self.storageUpdate = storageUpdate;
 		self.setCategories = setCategories;
 
+		// Call function at the start to set categories in variable self.categories
+		// so that can be called using productSrv
+		
+		setCategories();
+
 		self.getProducts()
 			.then(function(){
 
@@ -223,20 +228,15 @@
 		];
 
 		function setCategories() {
-	//		console.log(localStorage);
 			var categories = JSON.parse(localStorage.getItem("categories"));
-			if (categories.length != null) {
-				//get categories from localStorage
+			if (categories != null) {
+				//get categories from localStorage if they exist
 				self.categories = categories;
-				console.log("WTF, Categories exits!");
 			}
 			else {
-				//set default categories
+				//set default categories if no category exists
 				var categoriesToJSON = angular.toJson(self.defaultCategories);
 				localStorage.setItem("categories", categoriesToJSON);
-				console.log(localStorage);
-	
-				console.log("default categories set!");
 			}		
 		}
 
