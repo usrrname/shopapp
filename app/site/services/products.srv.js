@@ -39,6 +39,8 @@
 		self.cartRefresh = cartRefresh;
 		self.storageUpdate = storageUpdate;
 		self.setCategories = setCategories;
+		self.updateCategories = updateCategories;
+		self.deleteCategory = deleteCategory;
 
 
 
@@ -248,6 +250,21 @@
 			}		
 		}
 
+		function updateCategories() {
+			var categoriesToJSON = angular.toJson(self.categories);
+				localStorage.setItem("categories", categoriesToJSON);
+		}
+
+		function deleteCategory(id){
+			for (var i = 0; i < self.categories.length;i++){
+				if (self.categories[i].id == id){
+					self.categories.splice(i,1);
+					i--;
+				}
+			}
+			var categories = angular.toJson(self.categories);
+			localStorage.setItem("categories", categories);	
+		}
 
 		function cartRefresh(){
 			//console.log('refreshing cart...');
