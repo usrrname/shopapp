@@ -8,6 +8,7 @@
 		var self = this;
 		//public variables
 		self.products = [];
+		self.categories = [];
 		
 		if(localStorage.getItem("cart") == undefined){
 			//console.log("undefined cart");
@@ -39,10 +40,7 @@
 		self.storageUpdate = storageUpdate;
 		self.setCategories = setCategories;
 
-		// Call function at the start to set categories in variable self.categories
-		// so that can be called using productSrv
-		
-		setCategories();
+
 
 		self.getProducts()
 			.then(function(){
@@ -219,36 +217,54 @@
 			self.storageUpdate();
 		}
 
-		self.defaultCategories = [
-			{label:'Shirts',value:'shirts'},
-			{label:'Pants',value:'pants'},
-			{label:'Shoes',value:'shoes'},
-			{label:'Outerwear',value:'outerwear'},
-			{label:'Accessories',value:'accessories'},
+		var defaultCategories = [
+			{label:'Shirts',value:'shirts', id:'1'},
+			{label:'Pants',value:'pants', id:'2'},
+			{label:'Shoes',value:'shoes', id:'3'},
+			{label:'Outerwear',value:'outerwear', id:'4'},
+			{label:'Accessories',value:'accessories', id:'5'}
 		];
+
+		// Call function at the start to set categories in variable self.categories
+		// so that can be called using productSrv
+		
+		setCategories();
 
 		function setCategories() {
 			var categories = JSON.parse(localStorage.getItem("categories"));
+			// console.log(categories);
 			if (categories != null) {
 				//get categories from localStorage if they exist
 				self.categories = categories;
 			}
 			else {
 				//set default categories if no category exists
-				var categoriesToJSON = angular.toJson(self.defaultCategories);
+				var categoriesToJSON = angular.toJson(defaultCategories);
 				localStorage.setItem("categories", categoriesToJSON);
+
 			}		
 		}
 
 
 		function cartRefresh(){
 			//console.log('refreshing cart...');
-			self.cart = JSON.parse(localStorage.getItem("cart"));
+			if (localStorage.cart){
+				self.cart = JSON.parse(localStorage.getItem("cart"));
+				return self.cart;
+
+			}
+			return [];
 		}
 
 		function getCart() {
-			self.cart = JSON.parse(localStorage.getItem("cart"));
-			return self.cart;
+			console.log(localStorage.cart);
+			
+			if (localStorage.cart){
+				self.cart = JSON.parse(localStorage.getItem("cart"));
+				return self.cart;
+
+			}
+			return [];
 		}
 
 	}
