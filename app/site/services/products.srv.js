@@ -115,7 +115,7 @@
 		}
 
 		function updateProduct(product,productId){
-			api.request('/products/'+productId,product,'PUT')
+			return api.request('/products/'+productId,product,'PUT')
 			.then(function(res){
 				//console.log(res);
 				if(res.status === 200){
@@ -196,9 +196,10 @@
 		}
 
 		function storageUpdate(){
-			for (var i = 0; i < self.cart.length; i++){
+			for (var i = 0; i < self.cart.length;i++){
 				if (self.cart[i].count == 0){
 					self.cart.splice(i,1);
+					i--;
 				}
 			}
 			var cart = angular.toJson(self.cart);
@@ -234,7 +235,9 @@
 			var categories = JSON.parse(localStorage.getItem("categories"));
 			// console.log(categories);
 			if (categories != null) {
+
 				//get categories from localStorage if they exist
+
 				self.categories = categories;
 			}
 			else {
