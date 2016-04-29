@@ -41,6 +41,7 @@
 		self.setCategories = setCategories;
 		self.updateCategories = updateCategories;
 		self.deleteCategory = deleteCategory;
+		// self.productRefresh = productRefresh;
 
 
 
@@ -159,6 +160,8 @@
 			// $state.go('admin.dash');
 		}
 
+
+
 		function removeProduct(productId){
 			for(var i=0;i < self.products.length;i++){
 				if(self.products[i].id == productId){
@@ -276,6 +279,11 @@
 			}
 			return [];
 		}
+
+		// function productRefresh(){
+		// 	console("products REFRESH");
+		// 	self.products = self.getProducts();
+		// }
 
 		function getCart() {
 			console.log(localStorage.cart);
