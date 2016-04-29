@@ -12,7 +12,7 @@
 	</div>
 </nav>
 
-<section class="top-content" role="topbanner">
+<section id = "#top" class="top-content" role="topbanner">
 	<div class="content-wrapper">
 		<div class="table-view">
 			<div class="table-cell">
@@ -55,7 +55,6 @@
 		</ul>
 	</div>
 </section>
-
 <section class="product-view" role="product-view">
 	<div class="content-wrapper">
 		<div class="row">
@@ -80,21 +79,46 @@
 						<div class="product-name">
 							<!-- SET PRODUCT NAME -->
 							{{product.name}}
-							
-							
-						</div>
-						<div class="product-brand">
-							<!-- SET PRODUCT Description -->
-							{{product.description}}
-							<em></em>
 						</div>
 						<div class="product-cost">
 							<!-- SET PRODUCT PRICE WITH FILTER -->
-							
+							{{product.price | currency}}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-<section>
+</section>
+<footer>
+	<div class = "link-lists">
+		<div class = "list-column">
+			<h5>About Us</h5>
+			<ul>Our Mission</ul>
+			<ul>Team</ul>
+			<ul>Careers</ul>
+			<ul>Terms of Use</ul>
+		</div>
+		<div class = "list-column">
+			<h5>Customer Care</h5>
+			<ul>FAQ</ul>
+			<ul>Contact</ul>
+			<ul>Payments &amp; Insurance</ul>
+			<ul>Returns &amp; Exchanges</ul>
+		</div>
+		<div class = "list-column">
+			<h5>Featured Brands</h5>
+			<ul>Adidas</ul>
+			<ul>Nike</ul>
+			<ul>H&amp;M</ul>
+			<ul>Lacoste</ul>
+			<ul>Underarmor</ul>
+		</div>
+		<div class = "list-column">
+			<h5>Follow Us</h5>
+			<ul><img src="assets/img/twitter-letter-logo.png">
+			<img src="assets/img/facebook-logo.png"></ul>
+		</div>
+	</div>
+	<div class = "endline"><p align ="center">Copyleft Shirtify LLC. 2016</p></div>
+</footer>

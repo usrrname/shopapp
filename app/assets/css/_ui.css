@@ -23,7 +23,30 @@ body{
     user-select: none;
     cursor: pointer;
 }
-
+/*footer*/
+footer{
+	background-color: #DCDCDC;
+	display:block;
+}
+.link-lists{
+	background-color: #DCDCDC;
+	display:block;
+	position:relative;
+	margin:2% 25%;
+	text-align: left;
+	overflow: auto;
+	line-height: 1.75em;
+}
+.list-column{
+	background-color: #DCDCDC;
+	display:inline-block;
+	float:left;
+	padding:3.5em;
+}
+.endline{
+	padding-bottom:2%;
+	background-color: #DCDCDC;
+}
 /*
 Globals
 */
@@ -245,8 +268,12 @@ Product view
 
 }
 
-#product-card:hover > .product-img{
+.product-card:hover > .product-img{
 	opacity: 0.75;
+}
+
+.imgMaxed:hover > .product-img{
+	opacity: 0.15 !important;
 }
 
 #product-card .product-buy:hover{
