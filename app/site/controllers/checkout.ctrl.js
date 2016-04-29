@@ -47,8 +47,10 @@
 				for(var q = 0; q < chkVm.productSrv.products.length; q++) {
 					if (chkVm.productSrv.products[q].id == cartId) {
 						chkVm.productSrv.products[q].quantity -= cart[i].count;
-						productSrv.updateProduct(productSrv.products[q], cartId);
 					}
+				}
+				for(var q = 0; q < chkVm.productSrv.products.length; q++) {
+					productSrv.updateProduct(productSrv.products[q], cartId);
 				}
 			}
 			console.log('Products Arr after:');

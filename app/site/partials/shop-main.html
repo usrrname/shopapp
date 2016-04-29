@@ -81,11 +81,13 @@
 		<!-- TO DO #3: SET CATEGORY SEARCH AND SET FOCUS CLASS-->
 		<ul class="product-nav">
 			<li ng-click="ctrl.filter = ''; ctrl.customFilter = ''"><a>All</a></li>
-			<li ng-click="ctrl.filter = 'shoes'; ctrl.customFilter = ''"><a>Shoes</a></li>
+			<li ng-repeat="category in ctrl.productSrv.categories" ng-click="ctrl.filter = category.label; ctrl.customFilter = ''"><a>{{category.label}}</a></li>
+
+			<!-- <li ng-click="ctrl.filter = 'shoes'; ctrl.customFilter = ''"><a>Shoes</a></li>
 			<li ng-click="ctrl.filter = 'shirts'; ctrl.customFilter = ''"><a>Shirts</a></li>
 			<li ng-click="ctrl.filter = 'pants'; ctrl.customFilter = ''"><a>Pants</a></li>
 			<li ng-click="ctrl.filter = 'outerwear'; ctrlcustomFilter = ''"><a>Outerwear</a></li>
-			<li ng-click="ctrl.filter = 'accessories'; ctrl.customFilter = ''"><a>Accessories</a></li>
+			<li ng-click="ctrl.filter = 'accessories'; ctrl.customFilter = ''"><a>Accessories</a></li> -->
 		</ul>
 	</div>
 </section>
