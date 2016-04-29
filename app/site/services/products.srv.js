@@ -240,6 +240,7 @@
 
 				//get categories from localStorage if they exist
 
+
 				self.categories = categories;
 			}
 			else {
