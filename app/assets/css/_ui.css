@@ -84,7 +84,7 @@ nav{
 
 nav .left-nav{
 	float:left;
-	margin:0px 0px 0px 70px;
+	margin:0;
 	vertical-align: top;
 }
 
@@ -92,6 +92,10 @@ nav .right-nav{
 	float:right;
 	margin:0px 70px 0px 0px;
 	vertical-align: top;
+}
+
+nav .cartBox {
+	margin:0;
 }
 
 nav .fa-shopping-cart{
@@ -112,7 +116,7 @@ Top-content
 .top-content{
 	width:100%;
 	height:calc(70% - 110px);
-	background:url('../img/img-hero-1.png');
+	background:url('../img/img-hero-2.png');
 	background-size:cover;
 	background-position:center center;
 	text-align: center;
@@ -298,12 +302,12 @@ table * {
 }
 
 .maxError{
-	color:red;
+	color:rgb(27,38,127);
 	opacity:0;
 }
 
 .productMaxed{
-	color:red;
+	color:rgb(27,38,127);
 	opacity:0;
 	z-index:-1;
 	font-size:30px;
