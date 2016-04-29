@@ -59,14 +59,13 @@
 
 			chkVm.productSrv.orders.push(tempOrders);
 			console.log(chkVm.productSrv.orders);
+
+			localStorage.setItem("cart", "[]");
+			chkVm.productSrv.cartRefresh();
 			
 			var ordersToJSON = angular.toJson(chkVm.productSrv.orders);
 			localStorage.setItem("orders", ordersToJSON);
 
-			localStorage.setItem("cart", "[]");
-			chkVm.productSrv.cartRefresh();
-			$location.path('/');
-			
 		}
 
 		function serialNumAssign() {

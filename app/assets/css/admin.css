@@ -67,3 +67,7 @@
 #admin .product-frm select{
 	font-size:2rem;
 }
+
+.aBitBigger {
+	resize: none;
+}
