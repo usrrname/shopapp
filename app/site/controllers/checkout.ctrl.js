@@ -50,7 +50,9 @@
 					}
 				}
 				for(var q = 0; q < chkVm.productSrv.products.length; q++) {
-					productSrv.updateProduct(productSrv.products[q], cartId);
+					if (chkVm.productSrv.products[q].id == cartId) {
+						productSrv.updateProduct(productSrv.products[q], cartId);
+					}
 				}
 			}
 			console.log('Products Arr after:');
@@ -65,6 +67,8 @@
 			
 			var ordersToJSON = angular.toJson(chkVm.productSrv.orders);
 			localStorage.setItem("orders", ordersToJSON);
+
+			$state.go('shop');
 
 		}
 
