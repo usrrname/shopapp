@@ -1,71 +1,55 @@
-
-<!-- 	TODO #2: Populate fields with product data -->
-<article class="product-frm">
-		<div class = "form-group attribute">
-			<p class = "less-header-list">Name:
-			<input class = "form-control" type="text" name="name" ng-model="ctrl.product.name" required>
+<div class="col-md-12 edit-prod-page">
+	<div class="form-group">
+		<p>Name:</p>
+		<input class = "form-control" type="text" name="name" ng-model="ctrl.product.name" required>
 		<br>
-		</div>
+	</div>
 
-		<div class = "attribute">
-			<p class = "less-header-list">Image Url:
-			<input class = "form-control" type="text" name="image" ng-model="ctrl.product.image" required>
+	<div>
+		<p>Image Url:</p>
+		<input class = "form-control" type="text" name="image" ng-model="ctrl.product.image" required>
 		<br>
-		</div>
+	</div>
 
-		<div class = "attribute">
-			<p class = "less-header-list">Description:
-			<textarea class = "form-control aBitBigger" type="text" name="description" ng-model="ctrl.product.description" required></textarea>
+	<div>
+		<p>Description:</p>
+		<textarea class = "form-control aBitBigger" type="text" name="description" ng-model="ctrl.product.description" required></textarea>
 		<br>
-		</div>
-	
-		<div class = "attribute">
-			<p class = "less-header-list">Category:
-			<!-- TODO #2: Set Options -->
-			<big><select class = "form-control" name="category" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.product.category">
-			</select>
+	</div>
+
+	<div>
+		<p>Category: {{ctrl.set_category}}</p>
+		<!-- TODO #2: Set Options -->
+		<select class="form-control" name="category" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.set_category">
+		</select>
 		<br>
-		</div>
-		
-		<div class = "attribute floating">
-			<p class = "less-header-list-other">Price:
-			<input class = "form-control smaller" type="number" name="price" ng-model="ctrl.product.price" required>
-		</div>
-		
-		<p class = "emptyspace floating"> </p>
+	</div>
 
-		<div class = "attribute floating">
-			<p class = "less-header-list-other">Quantity:
-			<input class = "form-control smaller" type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
-		
-		</div>
-		
-		<div class = "floating-right">
-			<button class = "buttonstyle btn-success" type="submit" ng-click="ctrl.updateProduct()">
-			<img class = "icon" src="assets/NewPics/refresh.png"> 
-				{{ctrl.product_update_btn}}
-			<hr>
+	<div>
+		<p>Price:</p>
+		<input class = "form-control smaller" type="number" name="price" ng-model="ctrl.product.price" required>
+		<br>
+	</div>
 
-			
-			</button>
-		
-			<p><center> Add Product</p>
-		
-		</div>
+	<div>
+		<p>Quantity:</p>
+		<input class = "form-control smaller" type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
+		<br>
+	</div>
 
-		<div class = "floating-right-also">	
-			<button class = "buttonstyle btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
-				<img class = "icon" src="assets/NewPics/trash.png">
-				{{ctrl.product_delete_btn}}
-			</button>
-			<p><center> Delete Product</p>
-		</div>
+	<div>
+		<button class = "btn btn-success" type="submit" ng-click="ctrl.updateProduct() ; ctrl.backToDash()">
+		Update Product
+		</button>
+	</div>
+	<br>
+	<div>	
+		<button class = "btn btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
+			{{ctrl.product_delete_btn}}
+		</button>
 		
-		</div>
-		
-		<div class = "floating-title">
-				<img class = "icon-image" src="assets/NewPics/edit.png"> edit here
-				<img class = "icon-image" src="assets/NewPics/edit.png">
-		</div>
+	</div>
 
-</article>
+	</div>
+
+</div>

@@ -47,6 +47,10 @@
 				for(var q = 0; q < chkVm.productSrv.products.length; q++) {
 					if (chkVm.productSrv.products[q].id == cartId) {
 						chkVm.productSrv.products[q].quantity -= cart[i].count;
+					}
+				}
+				for(var q = 0; q < chkVm.productSrv.products.length; q++) {
+					if (chkVm.productSrv.products[q].id == cartId) {
 						productSrv.updateProduct(productSrv.products[q], cartId);
 					}
 				}
@@ -57,14 +61,15 @@
 
 			chkVm.productSrv.orders.push(tempOrders);
 			console.log(chkVm.productSrv.orders);
+
+			localStorage.setItem("cart", "[]");
+			chkVm.productSrv.cartRefresh();
 			
 			var ordersToJSON = angular.toJson(chkVm.productSrv.orders);
 			localStorage.setItem("orders", ordersToJSON);
 
-			localStorage.setItem("cart", "[]");
-			chkVm.productSrv.cartRefresh();
-			$location.path('/');
-			
+			$state.go('shop');
+
 		}
 
 		function serialNumAssign() {

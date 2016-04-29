@@ -1,54 +1,34 @@
-
-
-<article class="product-frm">
-	<form name="add-product" ng-submit="ctrl.addProduct()">
-		
-		<div class = "form-group attribute">
-			<p class = "less-header-list">Name:
-			<input class = "form-control" type="text" name="name" ng-model="ctrl.name" required>
-		</div>
-
-		<div class = "attribute">
-			<p class = "less-header-list">Image:
-			<input class = "form-control" type="text" name="image" ng-model="ctrl.image" required>
-		</div>
-
-		<div class = "attribute">
-			<p class = "less-header-list">Description:
-			<textarea class = "form-control" type="text" name="name" ng-model="ctrl.description" required></textarea>
-		</div>
-
-		<div class = "attribute">
-			<p class = "less-header-list">Category:
-			<big><select  class = "form-control" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.category" name="category">
-			</big></select>
-			
-		</div>
-
-		<div class = "attribute floating">
-			<p class = "less-header-list-other">Price:
-			<input  class = "form-control smaller" type="number" name="price" ng-model="ctrl.price" required>
-		</div>
-		
-		<p class = "emptyspace floating"></p>
-
-		<div class = "attribute floating">
-			<p class = "less-header-list-other">Quantity:
-			<input  class = "form-control smaller" type="number" name="quantity" ng-model="ctrl.quantity" required>
-		</div>
-		
-		<div class = "floating-right">
-			<button class = "buttonstyle btn-success" type="submit">
-			<img class = "icon" src="assets/NewPics/add.png">
-			</button>
-			<p><center> Add Product</p>
-		
-		</div>
-		<div class = "floating-title">
-				<img class = "icon-image" src="assets/NewPics/add.png"> 
-				add here
-				<img class = "icon-image" src="assets/NewPics/add.png">
-		</div>
-
-	</form>
-</article>
+<div class="col-md-12">
+  <!-- Product Name -->
+  <div class="form-group">
+    <label for="">Product Name:</label>
+    <input ng-model="ctrl.name" id="" placeholder="e.g. Iron Man V-Neck - White" class="form-control" type="text" required></input>
+  </div>
+  <!-- Image URL -->
+  <div class="form-group">
+    <label for="">Image URL:</label>
+    <input ng-model="ctrl.image" type="text" class="form-control" placeholder="e.g. http://bit.ly/2k4h" id="" required></input>
+  </div>
+  <!-- Description -->
+  <div class="form-group">
+    <label>Enter a Description:</label>
+    <textarea class="form-control" rows="5" ng-model="ctrl.description"></textarea>
+  </div>
+  <!-- Category -->
+  <div class="form-group">
+    <label>Category</label>
+    <select  class="form-control" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.category" name="category"></select>
+  </div>
+  <!-- Price -->
+  <div class="form-group">
+    <label for="">Price:</label>
+    <input ng-model="ctrl.price" type="text" class="form-control" placeholder="" id="" required></input>
+  </div>
+  <!-- Quantity -->
+  <div class="form-group">
+    <label for="">Quantity:</label>
+    <input ng-model="ctrl.quantity" type="text" class="form-control" placeholder="" id=""></input>
+  </div>
+  <!-- Button: Add Product -->
+  <button class="btn" ng-click="ctrl.addProduct()">Add Product</button>
+</div>

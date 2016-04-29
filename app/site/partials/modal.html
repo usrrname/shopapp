@@ -17,7 +17,7 @@
 			<tbody>
 				<tr ng-repeat="item in ctrl.cart">
 					<td>{{item.name}}</td>
-					<td>{{item.price}}</td>
+					<td>{{item.price | currency}}</td>
 					<td class="cartCount"><input type="number" min="0" max="{{item.quantity}}" ng-model="item.count" ng-blur="ctrl.max()"></input>
 					</td>
 					<td>
