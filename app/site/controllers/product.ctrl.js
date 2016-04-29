@@ -4,14 +4,13 @@
 	.module('shopApp')
 	.controller('ProductCtrl',ProductCtrl);
 
-	function ProductCtrl($stateParams,api,productSrv,$location){
+	function ProductCtrl($location, $state, $stateParams, api, productSrv){
 		var productVm = this;
 
 		//Fetching default Categories from productSrv for use on product page
 		productVm.categories = productSrv.categories;
 
-		productVm.product = {
-			};
+		productVm.product = {};
 
 		productVm.product_update_btn = 'Update Product';
 		productVm.product_delete_btn = 'Remove Product';
@@ -19,8 +18,8 @@
 		if($stateParams.productId != undefined){
 			productSrv.getProduct($stateParams.productId)
 			.then(function(res){
-				console.log(res);
 				productVm.product = res.data.product;
+				console.log(productVm.product);
 				//TODO #2 set category based on edit form based on 
 				//product category
 				for(var index in productVm.categories){
@@ -36,6 +35,7 @@
 		productVm.addProduct = addProduct;
 		productVm.updateProduct = updateProduct;
 		productVm.deleteProduct = deleteProduct;
+		productVm.backToDash = backToDash;
 
 		function addProduct(){
 			//TODO #2
@@ -59,6 +59,10 @@
 			//TODO #2
 			//create product object, pass to product service
 			//Update text in button
+		}
+
+		function backToDash() {
+			$state.go('admin.dash');
 		}
 
 		function deleteProduct(){
