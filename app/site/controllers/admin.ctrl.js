@@ -32,6 +32,8 @@
 		//public functions
 		adminVm.editProduct = editProduct;
 		adminVm.logout = logout;
+		adminVm.deleteAll = deleteAll;
+		adminVm.goHome = goHome;
 
 		function editProduct(product){
 			$state.go('admin.edit_product',{productId:product.id});
@@ -40,6 +42,19 @@
 		function logout(){
 			localStorage.removeItem('authToken');
 			$state.go('auth');
+		}
+
+		function deleteAll() {
+			
+			for(var i = productSrv.products.length - 1; i >= 0; i--) {
+				productSrv.deleteProduct(productSrv.products[i].id);
+				
+			}
+
+		}
+
+		function goHome() {
+			$state.go('shop');
 		}
 
 	}
