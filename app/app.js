@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('shopApp',['ui.router', 'ui.bootstrap']);
+		.module('shopApp',['ui.router', 'ui.bootstrap','xeditable']);
 
 	angular
 		.module('shopApp')
@@ -19,7 +19,7 @@
 				resolve:{
 					products:function(productSrv){
 						return productSrv.getProducts();
-					}
+					 }
 				}
 			})
 			.state('shop.prod',{

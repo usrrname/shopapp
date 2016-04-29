@@ -1,15 +1,14 @@
 <p class = "title">Categories</p>
 	
 <div>
-	<table class="products-list table header-list">
-		<tr>
-			<th class = "header-list">Category</th>
-			<th class = "header-list edit-area">edit</th>
-		</tr>
+	<table class="table table-striped">
 		<tr ng-repeat="category in ctrl.categories">
-				<td class="longlist">{{category.label}}</td>
-				<td class="longlist edit-area"><a ng-click="ctrl.editProduct(product)">
-			<img class = "icon-image" src="assets/NewPics/edit.png"></a></td>
-		</tr>
+				<td editable-text="category.label" e-form="textBtnForm" onaftersave="ctrl.updateCategory($data, category.id)">{{ category.label || "empty" }}</td>
+				<td>
+				<a class="btn btn-default" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">edit</a>
+				<a class="btn btn-danger" ng-click="ctrl.categoryRemove(category.id)">delete</a>
+				<!-- <button type="button" class="close" style="color:red" aria-label="Close"><span aria-hidden="true" ng-click="ctrl.categoryRemove(item.id)">&times;</span></button> -->
+				</td>
+  		</tr>
 	</table>
 </div>

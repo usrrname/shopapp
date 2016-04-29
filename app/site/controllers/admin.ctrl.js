@@ -15,7 +15,6 @@
 		}
 					
 		adminVm.products = products;
-		console.log(adminVm.products);
 		if(productSrv.products.length > 0 ){
 			adminVm.is_products = true;
 		}
