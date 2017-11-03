@@ -1,0 +1,21 @@
+{
+  "name": "shopapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-file-upload": "^2.5.0",
+    "angular-ui-router": "^0.4.3",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.5.4",
+    "sequelize": "^3.14.1",
+    "sqlite3": "^3.1.1"
+  }
+}
